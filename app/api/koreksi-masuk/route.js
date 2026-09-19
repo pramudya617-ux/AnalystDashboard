@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { NAMA_COOKIE, UMUR_SESI, buatTiket, sandi, sandiCocok } from "@/lib/sesi";
+import { klien, lewatJatah } from "@/lib/jatah";
+
+/* Delapan percobaan per menit per IP. Cukup longgar untuk salah ketik beberapa
+   kali, cukup ketat untuk membuat penebakan beruntun tidak ada gunanya. */
+const BATAS_PER_MENIT = 8;
 
 /* Rute masuk halaman koreksi.
  *
@@ -9,6 +14,13 @@ import { NAMA_COOKIE, UMUR_SESI, buatTiket, sandi, sandiCocok } from "@/lib/sesi
  */
 export async function POST(req) {
   if (!sandi()) return new NextResponse("Not found", { status: 404 });
+
+  if (!lewatJatah(klien(req), BATAS_PER_MENIT)) {
+    return NextResponse.json(
+      { error: "Terlalu banyak percobaan. Tunggu semenit." },
+      { status: 429 }
+    );
+  }
 
   let body;
   try {
