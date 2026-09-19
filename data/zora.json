@@ -3,7 +3,7 @@
   "avatar": "https://cdn.discordapp.com/avatars/1548790432006152202/749636565fa5e57dc508753b67ecba9f.png?size=128",
   "id": "1548790432006152202",
   "channelId": "1548792499810598932",
-  "ditarik": "2026-09-19T10:33:05Z",
+  "ditarik": "2026-09-19T11:03:19Z",
   "jumlahPesan": 15,
   "baris": [
     {
@@ -48,7 +48,7 @@
       "pair": "METUSDT",
       "bursa": "spot",
       "hasilAkhir": "belum tersentuh",
-      "imbal": 27.05,
+      "imbal": 24.95,
       "tpDiabaikan": 0,
       "sumberHasil": "harga",
       "imbalSumber": "harga",

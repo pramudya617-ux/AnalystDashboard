@@ -21,7 +21,7 @@ async function ditolak() {
   const jar = await cookies();
   if (!tiketSah(jar.get(NAMA_COOKIE)?.value)) {
     return NextResponse.json(
-      { error: "Perlu masuk dulu lewat halaman /koreksi" },
+      { error: "Perlu masuk dulu lewat halaman koreksi" },
       { status: 401 }
     );
   }

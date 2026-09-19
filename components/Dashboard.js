@@ -23,8 +23,21 @@ const HPENDEK = {
 
 /* Dashboard lama menampilkan LEVEL TP di sel hasil (TP1/TP2/Full TP), bukan
    sekadar "target kena". Level itu jauh lebih informatif, jadi ditiru di sini. */
+/* Kunci sebuah call. Cerminan kunciCall() di lib/data.js, ditulis ulang di sini
+   karena lib/data.js memakai node:fs dan tidak boleh ikut ke bundel browser. */
+function kunciCall(c) {
+  return c.sumber || `${c.aset}|${c.waktu}`;
+}
+
 function labelHasil(c) {
-  if (c.tpKe && MENANG.includes(c.hasilAkhir)) return String(c.tpKe).toUpperCase();
+  if (c.tpKe && MENANG.includes(c.hasilAkhir)) {
+    /* Bentuk tpKe di data bercampur: "TP1", "TP2", "TP", "Full TP", dan angka
+       telanjang 2 / 3 dari penarik Zora. Angka telanjang tidak terbaca sebagai
+       apa pun di kolom hasil, jadi semuanya diseragamkan jadi "TP 1". */
+    const t = String(c.tpKe).trim();
+    const n = t.match(/\d+/);
+    return n ? `TP ${n[0]}` : t.toUpperCase();
+  }
   return HPENDEK[c.hasilAkhir] || c.hasilAkhir || "—";
 }
 
@@ -119,6 +132,15 @@ export default function Dashboard({ data }) {
     return () => clearInterval(t);
   }, [router]);
 
+  /* SATU pintu untuk berpindah analis. Sebelumnya tiap tombol memanggil
+     setTerpilih sendiri-sendiri, dan yang lupa mematikan mode gabungan terasa
+     seperti tombol mati: analisnya berganti di belakang layar sementara layar
+     tetap menampilkan gabungan semua analis. */
+  function pilihAnalis(id) {
+    setGabungan(false);
+    setTerpilih(id);
+  }
+
   const analis = gabungan
     ? semua
     : data.analis.find((a) => a.id === terpilih) || data.analis[0];
@@ -159,7 +181,8 @@ export default function Dashboard({ data }) {
      ini (mis. baru berganti analis), jatuh ke panggilan pertamanya. */
   const call = useMemo(() => {
     const daftar = analis?.calls || [];
-    if (callSorot && daftar.some((c) => c.sumber === callSorot.sumber)) return callSorot;
+    const k = callSorot && kunciCall(callSorot);
+    if (callSorot && daftar.some((c) => kunciCall(c) === k)) return callSorot;
     return daftar.find((c) => c.pair) || daftar[0] || null;
   }, [callSorot, analis]);
 
@@ -173,7 +196,7 @@ export default function Dashboard({ data }) {
         <button
           className={!analis?.ringkasanSaja ? "on" : ""}
           title="Kembali ke analis dengan panggilan"
-          onClick={() => { setGabungan(false); setTerpilih(kartuAtas[0]?.id || data.analis[0]?.id); }}
+          onClick={() => pilihAnalis(kartuAtas[0]?.id || data.analis[0]?.id)}
         >
           <Ikon d={iGrid} />
         </button>
@@ -183,7 +206,7 @@ export default function Dashboard({ data }) {
             key={a.id}
             className={a.id === terpilih ? "on" : ""}
             title={`Ringkasan obrolan ${a.nama}`}
-            onClick={() => setTerpilih(a.id)}
+            onClick={() => pilihAnalis(a.id)}
           >
             {a.avatar
               ? <img src={a.avatar} alt="" style={{ width: 24, height: 24, borderRadius: "50%" }} />
@@ -251,7 +274,7 @@ export default function Dashboard({ data }) {
                   key={a.id}
                   className="kaca kartu"
                   style={{ textAlign: "left", cursor: "pointer", border: a.id === terpilih ? "1px solid rgba(47,123,255,.4)" : undefined }}
-                  onClick={() => { setGabungan(false); setTerpilih(a.id); }}
+                  onClick={() => pilihAnalis(a.id)}
                 >
                   <div className="kartu-kepala">
                     {a.avatar
@@ -415,17 +438,17 @@ export default function Dashboard({ data }) {
                           tautan Discord yang sama persis; tanpa itu React membuang
                           salah satu barisnya. */}
                       {callsTampil.map((c, i) => (
-                        <tr key={`${c.sumber || c.aset}-${c.waktu}-${i}`}>
+                        <tr
+                          key={`${kunciCall(c)}-${i}`}
+                          onClick={() => setCallSorot(c)}
+                          className={call && kunciCall(c) === kunciCall(call) ? "baris-pilih" : ""}
+                          style={{ cursor: "pointer" }}
+                          title={c.pair ? `Tampilkan chart ${c.pair}` : "Aset ini tidak ada di Binance"}
+                        >
                           {gabungan && (
                             <td style={{ color: "var(--ink-2)" }}>{c._analis}</td>
                           )}
-                          <td
-                            className="aset"
-                            style={{ cursor: c.pair ? "pointer" : "default",
-                                     color: c.sumber === call?.sumber ? "var(--biru-2)" : undefined }}
-                            onClick={() => setCallSorot(c)}
-                            title={c.pair ? "Tampilkan chart " + c.pair : "Aset ini tidak ada di Binance"}
-                          >{c.aset}</td>
+                          <td className="aset">{c.aset}</td>
                           <td><span className={`arah ${c.arah}`}>{c.arah}</span></td>
                           <td>{c.masuk != null ? c.masuk : "—"}</td>
                           <td>
@@ -441,7 +464,9 @@ export default function Dashboard({ data }) {
                           <td>
                             {c.sumber ? (
                               <a className="tautan-sumber" href={c.sumber}
-                                 target="_blank" rel="noreferrer" title="Buka pesan aslinya di Discord">
+                                 target="_blank" rel="noreferrer"
+                                 onClick={(e) => e.stopPropagation()}
+                                 title="Buka pesan aslinya di Discord">
                                 <svg viewBox="0 0 24 24" width="13" height="13" fill="none"
                                      stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                                   <path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" />
@@ -545,7 +570,7 @@ export default function Dashboard({ data }) {
                   <button
                     key={a.id}
                     className="daftar-baris"
-                    onClick={() => setTerpilih(a.id)}
+                    onClick={() => pilihAnalis(a.id)}
                     style={{ background: "none", border: 0, padding: 0, cursor: "pointer", textAlign: "left" }}
                   >
                     <span className="daftar-nama" style={{ color: a.id === terpilih ? "var(--ink)" : undefined }}>

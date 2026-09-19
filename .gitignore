@@ -3,3 +3,6 @@ node_modules/
 
 # berisi KOREKSI_SANDI - jangan pernah masuk repo
 .env.local
+
+# keadaan penjadwal - ditulis tiap 30 menit dan memuat jalur laptop
+data/jadwal_zora.json
