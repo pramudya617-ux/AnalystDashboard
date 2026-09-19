@@ -313,11 +313,17 @@ def pertahankan_hasil_lama(baru):
     dan itu persis yang terjadi di produksi. Jadi baris lama yang sudah punya
     hasil dipertahankan, dan penarikan berikutnya yang sehat akan memperbaruinya
     sendiri. Panggilan yang benar-benar baru tetap masuk seperti biasa."""
-    if not KELUARAN.exists():
+    # Volume yang baru dipasang masih KOSONG, jadi berkas acuannya belum ada di
+    # sana. Tanpa jatuh ke salinan repo, penarikan gagal yang pertama akan
+    # menulis baris kosong ke volume - dan volume menang atas repo, jadi
+    # kerusakannya justru menetap melewati redeploy. Itu kebalikan dari maksud
+    # volume ini dipasang.
+    acuan = KELUARAN if KELUARAN.exists() else HERE / "data" / "zora.json"
+    if not acuan.exists():
         return baru
     try:
         lama = {b.get("sumber"): b
-                for b in json.loads(KELUARAN.read_text(encoding="utf-8")).get("baris", [])
+                for b in json.loads(acuan.read_text(encoding="utf-8")).get("baris", [])
                 if b.get("sumber")}
     except Exception as e:  # noqa: BLE001
         print(f"  [peringatan] berkas lama tidak terbaca ({type(e).__name__}), dilewati")
@@ -479,6 +485,23 @@ SL: 0,02060 (20%)"""
         ])
         assert hasil[0]["tpKe"] == 3, hasil[0]          # hasil lama dipertahankan
         assert hasil[1]["aset"] == "BARU", hasil[1]     # panggilan baru tetap masuk
+
+    # Volume yang baru dipasang masih kosong: acuannya harus jatuh ke salinan
+    # repo, bukan menyerah dan menulis baris kosong ke volume selamanya.
+    global HERE
+    simpan_here = HERE
+    with tempfile.TemporaryDirectory() as d:
+        HERE = pathlib.Path(d)
+        (HERE / "data").mkdir()
+        (HERE / "data" / "zora.json").write_text(json.dumps({"baris": [
+            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "tpKe": 3},
+        ]}), encoding="utf-8")
+        KELUARAN = pathlib.Path(d) / "volume-kosong" / "zora.json"   # belum ada
+        hasil = pertahankan_hasil_lama([
+            {"sumber": "m1", "aset": "AKE", "pair": None, "tpKe": None},
+        ])
+        assert hasil[0]["tpKe"] == 3, hasil[0]
+    HERE = simpan_here
     KELUARAN = simpan_keluaran
 
     print("selftest ok: penguraian, angka koma, short, urutan SL-sebelum-TP, "
