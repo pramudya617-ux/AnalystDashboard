@@ -330,7 +330,15 @@ def pertahankan_hasil_lama(baru):
         return baru
 
     def kosong(b):
-        return b.get("pair") in (None, "?")
+        """Baris tanpa hasil penilaian harga.
+
+        Patokannya BUKAN ada tidaknya pasangan Binance. Penarikan 14:10 di
+        produksi membuktikannya: AKE, BULLA, dan ARIA dapat pasangan lengkap
+        (AKEUSDT/futures) tapi lilinnya gagal diambil, jadi barisnya tetap
+        kosong sementara penjaga ini menganggapnya utuh dan membiarkannya
+        menimpa hasil yang benar. Yang menentukan adalah apakah harganya
+        benar-benar terbaca."""
+        return b.get("masuk") is None and b.get("tpKe") is None
 
     hasil, dipertahankan = [], 0
     for b in baru:
@@ -477,14 +485,20 @@ SL: 0,02060 (20%)"""
     with tempfile.TemporaryDirectory() as d:
         KELUARAN = pathlib.Path(d) / "zora.json"
         KELUARAN.write_text(json.dumps({"baris": [
-            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "tpKe": 3, "imbal": 58.33},
+            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "masuk": 0.024, "tpKe": 3},
+            {"sumber": "m3", "aset": "MET", "pair": "METUSDT", "masuk": 0.21, "tpKe": None},
         ]}), encoding="utf-8")
         hasil = pertahankan_hasil_lama([
-            {"sumber": "m1", "aset": "AKE", "pair": None, "tpKe": None, "imbal": None},
-            {"sumber": "m2", "aset": "BARU", "pair": None, "tpKe": None, "imbal": None},
+            # Pasangan lengkap tapi lilin gagal: inilah bentuk kerusakan 14:10,
+            # dan baris seperti ini tidak boleh menimpa hasil lama.
+            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "bursa": "futures",
+             "masuk": None, "tpKe": None},
+            {"sumber": "m2", "aset": "BARU", "pair": None, "masuk": None, "tpKe": None},
+            {"sumber": "m3", "aset": "MET", "pair": "METUSDT", "masuk": 0.22, "tpKe": None},
         ])
         assert hasil[0]["tpKe"] == 3, hasil[0]          # hasil lama dipertahankan
         assert hasil[1]["aset"] == "BARU", hasil[1]     # panggilan baru tetap masuk
+        assert hasil[2]["masuk"] == 0.22, hasil[2]      # penarikan sehat tetap memperbarui
 
     # Volume yang baru dipasang masih kosong: acuannya harus jatuh ke salinan
     # repo, bukan menyerah dan menulis baris kosong ke volume selamanya.
@@ -494,11 +508,11 @@ SL: 0,02060 (20%)"""
         HERE = pathlib.Path(d)
         (HERE / "data").mkdir()
         (HERE / "data" / "zora.json").write_text(json.dumps({"baris": [
-            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "tpKe": 3},
+            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "masuk": 0.024, "tpKe": 3},
         ]}), encoding="utf-8")
         KELUARAN = pathlib.Path(d) / "volume-kosong" / "zora.json"   # belum ada
         hasil = pertahankan_hasil_lama([
-            {"sumber": "m1", "aset": "AKE", "pair": None, "tpKe": None},
+            {"sumber": "m1", "aset": "AKE", "pair": None, "masuk": None, "tpKe": None},
         ])
         assert hasil[0]["tpKe"] == 3, hasil[0]
     HERE = simpan_here

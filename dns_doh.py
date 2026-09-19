@@ -67,4 +67,31 @@ def pasang():
         socket.getaddrinfo = _tambal
 
 
-pasang()
+def dns_bersih():
+    """Apakah resolver bawaan sudah sampai ke Binance yang asli?
+
+    Ditanyakan karena tambalan ini BERBAHAYA di tempat yang DNS-nya sehat. Dia
+    memaku SATU alamat IP - yang pertama dari sudut pandang Cloudflare - untuk
+    seluruh host binance.com selama setengah jam. Di laptop rumahan itu
+    penyelamat. Di Railway itu justru membuang alamat tetangga yang dipilihkan
+    jaringannya sendiri dan menggantinya dengan alamat pilihan resolver asing,
+    yang bisa jauh atau menolak IP pusat data - dan gagalnya berpindah-pindah:
+    daftar simbol futures gagal jam 13:45, lilinnya yang gagal jam 14:10.
+
+    Satu permintaan ping sudah cukup menjawab, dan jawabannya pasti: kalau
+    resolver bawaan sampai ke Binance asli, tambalan ini tidak punya urusan."""
+    try:
+        with urllib.request.urlopen(
+                urllib.request.Request("https://api.binance.com/api/v3/ping",
+                                       headers={"User-Agent": "Mozilla/5.0"}),
+                timeout=8) as f:
+            return f.status == 200
+    except Exception:                                        # noqa: BLE001
+        return False
+
+
+if dns_bersih():
+    print("[dns] resolver bawaan sampai ke Binance; tambalan DoH tidak dipasang")
+else:
+    pasang()
+    print("[dns] resolusi Binance dialihkan lewat DNS-over-HTTPS")
