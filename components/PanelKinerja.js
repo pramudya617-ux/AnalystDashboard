@@ -61,6 +61,7 @@ export default function PanelKinerja({ calls, mode }) {
    daripada diagram batang. Angka dan label diberi garis luar gelap supaya tetap
    terbaca di atas pita biru. */
 function Corong({ h }) {
+  const [buka, setBuka] = useState(false);
   const W = 1000, H = 190, pad = 16;
   const belum = h.total - h.pasti;
 
@@ -125,10 +126,10 @@ function Corong({ h }) {
           const x = i * lebar + (i === tahap.length - 1 ? -190 : 14);
           return (
             <g key={t.k}>
-              <AngkaSvg className="cn" x={x} y={tengah - 8} nilai={t.n} />
-              <text className="cg" x={x} y={tengah + 16}>{t.k}</text>
+              <AngkaSvg className="cn" x={x} y={tengah - 14} nilai={t.n} />
+              <text className="cg" x={x} y={tengah + 18}>{t.k}</text>
               {t.dari ? (
-                <text className="cs" x={x} y={tengah + 36}>
+                <text className="cs" x={x} y={tengah + 44}>
                   {Math.round((t.n / t.dari) * 100)}% dari yang pasti
                 </text>
               ) : null}
@@ -137,16 +138,28 @@ function Corong({ h }) {
         })}
       </svg>
 
-      <p className="corong-ket">
-        <b style={{ color: "var(--ink-2)" }}>Untung + Rugi tidak berjumlah sama dengan Panggilan.</b>{" "}
-        Ada <b style={{ color: "var(--ink-2)" }}>{belum}</b> panggilan yang hasilnya belum bisa
-        dipastikan, dan itu tidak dihitung di kedua sisi — terjadi kalau posisinya masih berjalan,
-        kalau analisnya menutup tanpa menyebut untung atau rugi, atau kalau asetnya tidak
-        diperdagangkan di Binance sehingga tidak ada harga pembanding.
-        <br />
-        Win rate memakai <b style={{ color: "var(--ink-2)" }}>{h.pasti}</b> sebagai penyebut,
-        bukan {h.total}.
-      </p>
+      <div className="corong-ket">
+        <button className="ket-buka" onClick={() => setBuka(!buka)} aria-expanded={buka}>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+               strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"
+               style={{ transform: buka ? "rotate(90deg)" : "none", transition: "transform .2s" }}>
+            <path d="M9 6l6 6-6 6" />
+          </svg>
+          <span>
+            <b style={{ color: "var(--ink-2)" }}>{belum}</b> belum pasti · win rate dari{" "}
+            <b style={{ color: "var(--ink-2)" }}>{h.pasti}</b>
+          </span>
+        </button>
+
+        {buka && (
+          <p style={{ margin: "8px 0 0", lineHeight: 1.6 }}>
+            Untung + Rugi tidak berjumlah sama dengan Panggilan. Yang belum pasti biasanya
+            masih berjalan, ditutup manual tanpa menyebut hasil, atau berakhir BEP — dan
+            sebagian kecil asetnya tidak diperdagangkan di Binance sehingga tidak ada harga
+            pembanding.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

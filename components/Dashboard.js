@@ -6,6 +6,7 @@ import HargaLangsung from "./HargaLangsung";
 import GrafikTradingView from "./GrafikTradingView";
 import GrafikMini from "./GrafikMini";
 import Angka from "./Angka";
+import StatusTarik from "./StatusTarik";
 import PanelKinerja from "./PanelKinerja";
 
 /* Disalin dari lib/data.js. Tidak bisa diimpor langsung karena modul itu memakai
@@ -34,18 +35,6 @@ function kelasHasil(h) {
 }
 
 const pct = (n, d = 1) => (typeof n === "number" ? `${n.toFixed(d)}%` : "—");
-/* "3 jam lalu" - cukup untuk menilai kesegaran data tanpa membaca cap waktu. */
-function sejak(iso) {
-  const detik = (Date.now() - new Date(iso).getTime()) / 1000;
-  if (!Number.isFinite(detik) || detik < 0) return "baru saja";
-  if (detik < 90) return "baru saja";
-  const menit = Math.round(detik / 60);
-  if (menit < 60) return `${menit} menit lalu`;
-  const jam = Math.round(menit / 60);
-  if (jam < 24) return `${jam} jam lalu`;
-  return `${Math.round(jam / 24)} hari lalu`;
-}
-
 const tgl = (s) => (s ? new Date(s).toLocaleDateString("id-ID", { day: "2-digit", month: "short" }) : "—");
 
 /* ------------------------------------------------------------------ ikon */
@@ -74,6 +63,17 @@ export default function Dashboard({ data }) {
   const [cari, setCari] = useState("");
   const [callSorot, setCallSorot] = useState(null);
   const [chartPenuh, setChartPenuh] = useState(false);
+  /* null = belum diketahui. Panel chart baru dirender setelah nilainya pasti,
+     supaya server dan browser tidak merender susunan berbeda - React
+     melaporkannya sebagai hydration mismatch. */
+  const [layarKecil, setLayarKecil] = useState(null);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 820px)");
+    const ubah = () => setLayarKecil(mq.matches);
+    ubah();
+    mq.addEventListener("change", ubah);
+    return () => mq.removeEventListener("change", ubah);
+  }, []);
   const [gabungan, setGabungan] = useState(false);
 
   /* Mode gabungan disusun sebagai "analis semu" berisi panggilan semua analis.
@@ -110,8 +110,6 @@ export default function Dashboard({ data }) {
     };
   }, [data.analis]);
 
-  const zoraDitarik = data.analis.find((a) => a.ditarik)?.ditarik || null;
-
   /* Muat ulang data dari server tiap menit, supaya koreksi yang disimpan di
      halaman /koreksi dan hasil penarikan otomatis Zora muncul sendiri tanpa
      perlu menyegarkan halaman. router.refresh() hanya mengambil ulang data
@@ -120,18 +118,6 @@ export default function Dashboard({ data }) {
     const t = setInterval(() => router.refresh(), 60_000);
     return () => clearInterval(t);
   }, [router]);
-
-  /* Dihitung SETELAH terpasang di browser. Kalau dirender di server juga, jam
-     server dan jam browser berbeda beberapa detik dan React melaporkannya
-     sebagai hydration mismatch. Ikut menyegar sendiri tiap menit. */
-  const [segar, setSegar] = useState(null);
-  useEffect(() => {
-    if (!zoraDitarik) return;
-    const perbarui = () => setSegar(sejak(zoraDitarik));
-    perbarui();
-    const t = setInterval(perbarui, 60_000);
-    return () => clearInterval(t);
-  }, [zoraDitarik]);
 
   const analis = gabungan
     ? semua
@@ -244,15 +230,15 @@ export default function Dashboard({ data }) {
             />
           </div>
 
-          {/* Penarikan Zora berjalan otomatis lewat penjadwal di sisi server,
-              jadi tidak ada tombol yang harus dipencet. Yang ditampilkan cukup
-              kapan datanya terakhir diperbarui. */}
-          {zoraDitarik && segar && (
-            <span style={{ fontSize: 11, color: "var(--ink-3)", whiteSpace: "nowrap" }}
-                  title={`Penarikan otomatis terakhir: ${new Date(zoraDitarik).toLocaleString("id-ID")}`}>
-              Zora diperbarui {segar}
-            </span>
-          )}
+          <StatusTarik
+            jadwal={data.jadwal}
+            /* Yang punya panggilan didahulukan: merekalah yang paling terasa
+               kalau penarikan tertunda. */
+            namaAnalis={data.analis
+              .filter((x) => !x.ditarik)
+              .sort((a, b) => b.calls.length - a.calls.length)
+              .map((x) => x.nama)}
+          />
         </header>
 
         <div className="kisi">
@@ -290,7 +276,15 @@ export default function Dashboard({ data }) {
               ))}
             </div>
 
-            {chartPenuh && call?.pair && (
+            {!analis?.ringkasanSaja && (
+              <PanelKinerja calls={analis?.calls || []} mode={data.mode} />
+            )}
+
+            {/* LAPTOP: chart penuh terbuka TEPAT DI BAWAH panel untung-rugi saat
+                pratinjau di kolom kanan dipencet - posisi yang sama dengan mode
+                ponsel, jadi tempat munculnya chart tidak berpindah-pindah
+                tergantung lebar layar. */}
+            {layarKecil === false && chartPenuh && call?.pair && (
               <section className="kaca">
                 <div className="panel-kepala">
                   <div>
@@ -320,8 +314,63 @@ export default function Dashboard({ data }) {
               </section>
             )}
 
-            {!analis?.ringkasanSaja && (
-              <PanelKinerja calls={analis?.calls || []} mode={data.mode} />
+
+            {/* PONSEL: chart duduk TEPAT DI BAWAH panel untung-rugi. Di layar
+                sempit kolom kanan jatuh ke paling bawah, jadi chart di sana
+                praktis tidak pernah terlihat. */}
+            {layarKecil === true && call?.pair && (
+              <section className="kaca">
+                <div className="panel-kepala">
+                  <div>
+                    <div className="judul">
+                      {call.aset}
+                      <span style={{ color: "var(--ink-3)", fontWeight: 400 }}>/USDT</span>
+                    </div>
+                    <div className="judul-sub">
+                      {call.arah} · {(call.waktu || "").slice(0, 16).replace("T", " ")}
+                      {call.bursa === "futures" ? " · futures" : ""}
+                    </div>
+                  </div>
+                  <div className="kanan">
+                    <button className="pil" onClick={() => setChartPenuh(!chartPenuh)}
+                            title={chartPenuh ? "Kembali ke pratinjau" : "Buka chart TradingView"}>
+                      {chartPenuh ? (
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                             stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                             strokeLinejoin="round">
+                          <path d="M9 14L4 9l5-5" />
+                          <path d="M20 20v-7a4 4 0 0 0-4-4H4" />
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                             stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                             strokeLinejoin="round">
+                          <path d="M3 3v18h18" /><path d="M7 15l4-4 3 3 5-6" />
+                        </svg>
+                      )}
+                      {chartPenuh ? "Pratinjau" : "TradingView"}
+                    </button>
+                  </div>
+                </div>
+
+                {chartPenuh ? (
+                  <GrafikTradingView
+                    pair={call.pair} pasar={call.bursa} aset={call.aset}
+                    arah={call.arah} waktu={call.waktu} tinggi={380} tanpaKepala
+                  />
+                ) : (
+                  <div style={{ position: "relative", padding: "0 10px 10px" }}>
+                    <GrafikMini pair={call.pair} pasar={call.bursa} tinggi={190} />
+                    <div
+                      role="button" tabIndex={0}
+                      title="Buka chart TradingView"
+                      onClick={() => setChartPenuh(true)}
+                      onKeyDown={(e) => e.key === "Enter" && setChartPenuh(true)}
+                      style={{ position: "absolute", inset: 0, cursor: "pointer" }}
+                    />
+                  </div>
+                )}
+              </section>
             )}
 
             {/* isi analis: ringkasan saja ATAU tabel panggilan */}
@@ -432,44 +481,38 @@ export default function Dashboard({ data }) {
               <HargaLangsung pairs={pairs} />
             </section>
 
-            <section className="kaca">
-              <div className="panel-kepala">
-                <div>
-                  <div className="judul">{call?.pair || "Chart"}</div>
-                  <div className="judul-sub">
-                    TradingView{call?.bursa === "futures" ? " · futures" : ""}
+            {layarKecil === false && call?.pair && (
+              <section className="kaca">
+                <div className="panel-kepala">
+                  <div>
+                    <div className="judul">{call.pair}</div>
+                    <div className="judul-sub">
+                      TradingView{call.bursa === "futures" ? " · futures" : ""}
+                    </div>
+                  </div>
+                  <div className="kanan">
+                    <button className="nav-kecil"
+                            title={chartPenuh ? "Tutup chart besar" : "Buka chart besar"}
+                            onClick={() => setChartPenuh(!chartPenuh)}>
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                           stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
-                <div className="kanan">
-                  <button
-                    className="nav-kecil"
-                    title={chartPenuh ? "Tutup chart besar" : "Buka chart besar di kolom utama"}
-                    onClick={() => setChartPenuh(!chartPenuh)}
-                  >
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
-                         stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              {/* Lapisan transparan di atas iframe: widget TradingView menelan
-                  klik, jadi tanpa lapisan ini panelnya tidak bisa dipencet. */}
-              <div style={{ position: "relative", padding: "0 10px 10px" }}>
-                <GrafikMini pair={call?.pair} pasar={call?.bursa} />
-                {call?.pair && (
+                <div style={{ position: "relative", padding: "0 10px 10px" }}>
+                  <GrafikMini pair={call.pair} pasar={call.bursa} tinggi={190} />
                   <div
-                    role="button"
-                    tabIndex={0}
-                    title="Buka chart penuh di kolom utama"
+                    role="button" tabIndex={0}
+                    title="Buka chart besar di kolom utama"
                     onClick={() => setChartPenuh(true)}
                     onKeyDown={(e) => e.key === "Enter" && setChartPenuh(true)}
                     style={{ position: "absolute", inset: 0, cursor: "pointer" }}
                   />
-                )}
-              </div>
-            </section>
+                </div>
+              </section>
+            )}
 
             <section className="kaca">
               <div className="panel-kepala">

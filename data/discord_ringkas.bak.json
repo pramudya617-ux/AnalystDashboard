@@ -1,7 +1,7 @@
 {
- "dibuat": "2026-09-19T10:03:33.632691+00:00",
+ "dibuat": "2026-09-19T09:39:14.827394+00:00",
  "jendelaJam": 4320,
- "model": "llama-3.3-70b-versatile",
+ "model": "openai/gpt-oss-120b",
  "catatan": "Konteks, bukan sinyal. Ringkasan dibuat LLM dan bisa keliru; kutipan mentahnya disertakan supaya bisa diperiksa sendiri. Panggilan hanya dimuat kalau kutipannya terbukti ada di pesan asli. HASIL BERASAL DARI PENGAKUAN ANALISNYA SENDIRI, bukan dari harga bursa — jadi angka menang cenderung optimistis, karena orang melaporkan menang lebih rajin daripada kalah.",
  "bulan": [
   {
@@ -30,7 +30,7 @@
      "pair": "BTCUSDT",
      "bursa": "spot",
      "masuk": 81136.02,
-     "imbal": -0.24,
+     "imbal": -0.18,
      "terbaik": 0.28,
      "terburuk": -0.48,
      "hariDinilai": 0.2,
@@ -61,7 +61,7 @@
      "pair": "XMRUSDT",
      "bursa": "futures",
      "masuk": 539.39,
-     "imbal": 7.39,
+     "imbal": 7.86,
      "terbaik": 13.13,
      "terburuk": -1.87,
      "hariDinilai": 1.0,
@@ -92,7 +92,7 @@
      "pair": "ONDOUSDT",
      "bursa": "spot",
      "masuk": 0.3847,
-     "imbal": 5.51,
+     "imbal": 5.07,
      "terbaik": 7.95,
      "terburuk": -0.44,
      "hariDinilai": 1.0,
@@ -124,7 +124,7 @@
      "bursa": "spot",
      "masuk": 0.231,
      "imbal": 11.47,
-     "imbal7h": 6.75,
+     "imbal7h": 6.8,
      "imbalTutup": 6.15,
      "imbalSampai": "2026-09-18T13:04:05.585000+00:00",
      "imbalDasar": "klaim",
@@ -161,7 +161,7 @@
      "bursa": "futures",
      "masuk": 4.4804,
      "imbal": 2.72,
-     "imbal7h": 13.36,
+     "imbal7h": 13.53,
      "imbalTutup": 2.72,
      "imbalSampai": "2026-09-16T19:07:06.694000+00:00",
      "imbalDasar": "klaim",
@@ -197,7 +197,7 @@
      "pair": "BTCUSDT",
      "bursa": "spot",
      "masuk": 76080.0,
-     "imbal": -6.9,
+     "imbal": -6.83,
      "terbaik": 0.59,
      "terburuk": -7.44,
      "hariDinilai": 2.5,
@@ -229,7 +229,7 @@
      "bursa": "futures",
      "masuk": 4.4804,
      "imbal": 12.42,
-     "imbal7h": 13.36,
+     "imbal7h": 13.53,
      "imbalTutup": 9.25,
      "imbalSampai": "2026-09-17T08:43:18.620000+00:00",
      "imbalDasar": "klaim",
@@ -266,7 +266,7 @@
      "bursa": "spot",
      "masuk": 6.695,
      "imbal": -7.87,
-     "imbal7h": 37.18,
+     "imbal7h": 37.58,
      "imbalTutup": -4.3,
      "imbalSampai": "2026-09-15T16:31:02.597000+00:00",
      "imbalDasar": "klaim",
@@ -302,8 +302,8 @@
      "pair": "ZECUSDT",
      "bursa": "spot",
      "masuk": 1137.97,
-     "imbal": 37.66,
-     "terbaik": 40.19,
+     "imbal": 38.45,
+     "terbaik": 39.58,
      "terburuk": -4.55,
      "hariDinilai": 4.7,
      "hasil": "invalidasi tersentuh",
@@ -599,12 +599,6 @@
        "teks": "Sempat pump",
        "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1546375289917931520",
        "gambar": []
-      },
-      {
-       "waktu": "2026-09-07T04:23:19.380000+00:00",
-       "teks": "Sempat pump",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1546375289917931520",
-       "gambar": []
       }
      ],
      "dasarTP": null,
@@ -728,12 +722,6 @@
        "teks": "Pump tuh 75 persen",
        "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
        "gambar": []
-      },
-      {
-       "waktu": "2026-09-05T18:47:31.099000+00:00",
-       "teks": "Pump tuh 75 persen",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
-       "gambar": []
       }
      ],
      "dasarTP": null,
@@ -759,13 +747,13 @@
      "entry": null,
      "target": null,
      "stop": 0.0607,
-     "status": "BE",
-     "klaim": "diaku BE",
+     "status": "Open",
+     "klaim": null,
      "kabar": [],
      "dasarTP": null,
      "tpKe": null,
-     "klaimTeks": "<@&1246803191505358928> Still long INIT - have not moved stops BE yet. Another chance at an entry here for anyone who missed Still expecting higher, send it up",
-     "klaimWaktu": "2026-09-11T11:06:45.894000+00:00",
+     "klaimTeks": null,
+     "klaimWaktu": null,
      "waktu": "2026-09-04T14:13:21.650000+00:00",
      "sumber": "https://discord.com/channels/1199773381097181317/1317766865749020802/1545436614203932755",
      "kutipan": "Going long INIT again here at CMP. 1H close under 0.0607 for stops, TPs above",
@@ -774,19 +762,13 @@
      "pair": "INITUSDT",
      "bursa": "spot",
      "masuk": 0.06367,
-     "imbal": 7.18,
-     "imbal7h": 9.24,
-     "imbalTutup": 7.18,
-     "imbalSampai": "2026-09-11T11:06:45.894000+00:00",
-     "imbalDasar": "klaim",
-     "hariDinilaiKlaim": 6.8,
+     "imbal": 9.24,
      "terbaik": 11.84,
      "terburuk": -1.37,
      "hariDinilai": 7.0,
      "hasil": "untung",
-     "hasilAkhir": "impas",
-     "sumberHasil": "analis",
-     "statusSumber": "analis",
+     "hasilAkhir": "untung",
+     "sumberHasil": "harga",
      "imbalSumber": "harga"
     },
     {
@@ -1262,11 +1244,11 @@
      "aset": "HYPE",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 82.279,
      "target": null,
      "stop": null,
-     "status": "Ditutup",
-     "klaim": "diaku ditutup",
+     "status": "TP",
+     "klaim": "diaku TP kena",
      "kabar": [
       {
        "waktu": "2026-08-25T20:43:13.888000+00:00",
@@ -1801,7 +1783,7 @@
        }
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi holding",
      "tpKe": null,
      "klaimTeks": "**$HYPE OTL**\n\nWeekly timeframe, area support utama masih berada di sekitar 60. Namun, level kuncinya sekarang ada di 79.74. Kalau weekly candle berhasil closing di bawah level tersebut, maka skenario",
      "klaimWaktu": "2026-09-12T06:22:25.577000+00:00",
@@ -1810,10 +1792,12 @@
      "kutipan": "**SHORT $HYPE**",
      "ke": 3,
      "dari": 3,
+     "kartuGerak": 2.67,
+     "kartuStatus": "holding",
      "pair": "HYPEUSDT",
      "bursa": "futures",
      "masuk": 81.757,
-     "imbal": 3.31,
+     "imbal": 2.67,
      "imbal7h": -1.26,
      "imbalTutup": 3.31,
      "imbalSampai": "2026-09-12T06:22:25.577000+00:00",
@@ -1823,10 +1807,11 @@
      "terburuk": -6.14,
      "hariDinilai": 7.0,
      "hasil": "untung",
-     "hasilAkhir": "ditutup",
+     "hasilAkhir": "untung",
      "sumberHasil": "analis",
      "statusSumber": "analis",
-     "imbalSumber": "harga"
+     "imbalHarga": 4.4,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "FARTCOIN",
@@ -3318,14 +3303,6 @@
        "gambar": [
         "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
        ]
-      },
-      {
-       "waktu": "2026-07-28T12:26:52.254000+00:00",
-       "teks": "Target price yang gua punya untuk $NVDA atleast gua aiming for 182-172 range of price (Value Area Low). Kalo dikasih lanjut SL+ di 172 <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1531639076241936535",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
-       ]
       }
      ],
      "dasarTP": null,
@@ -3637,11 +3614,11 @@
      "aset": "AKEUSDT",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 0.0017028,
      "target": null,
      "stop": null,
-     "status": "Open",
-     "klaim": null,
+     "status": "TP",
+     "klaim": "diaku TP kena",
      "kabar": [
       {
        "waktu": "2026-07-20T06:21:56.887000+00:00",
@@ -4174,17 +4151,9 @@
         "waktu": "2026-07-20 13:21",
         "gerak": 5.63
        }
-      },
-      {
-       "waktu": "2026-07-20T06:21:56.887000+00:00",
-       "teks": "<@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1528648137491746826",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1456034054737756270/1528648136954740846/IMG_4524.png?ex=6aaf7b84&is=6aae2a04&hm=5ef01ba91f21010a9cfda7075cd0f4f744ce4042dcc1e8ef01937282f709265f&"
-       ]
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi tanpa status",
      "tpKe": null,
      "klaimTeks": null,
      "klaimWaktu": null,
@@ -4193,17 +4162,26 @@
      "kutipan": "$AKEUSDT SHORT",
      "ke": 1,
      "dari": 1,
+     "kartuGerak": 5.63,
+     "kartuStatus": null,
      "pair": "AKEUSDT",
      "bursa": "futures",
      "masuk": 0.0016872,
-     "imbal": -153.35,
+     "imbal": 5.63,
+     "imbal7h": -153.35,
+     "imbalTutup": -153.35,
+     "imbalSampai": null,
+     "imbalDasar": "horizon",
+     "hariDinilaiKlaim": 7.2,
      "terbaik": 19.75,
      "terburuk": -308.96,
      "hariDinilai": 7.0,
-     "hasil": "rugi",
-     "hasilAkhir": "rugi",
-     "sumberHasil": "harga",
-     "imbalSumber": "harga"
+     "hasil": "untung",
+     "hasilAkhir": "untung",
+     "sumberHasil": "analis",
+     "statusSumber": "analis",
+     "imbalHarga": 19.75,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "CASHCAT",
@@ -4340,7 +4318,7 @@
      "aset": "BTC",
      "penulis": "Jaxx",
      "arah": "short",
-     "entry": null,
+     "entry": 751.19,
      "target": null,
      "stop": null,
      "status": "TP",
@@ -4367,7 +4345,7 @@
        }
       }
      ],
-     "dasarTP": "balasan menunjukkan untung",
+     "dasarTP": "kartu posisi tanpa status",
      "tpKe": null,
      "klaimTeks": "Oh ya ini jg SP and NQ dah jalan lagi after kemaren floating lumayan gede dan sempet AVG down.",
      "klaimWaktu": "2026-07-17T08:57:05.550000+00:00",
@@ -4376,10 +4354,12 @@
      "kutipan": "Tambahin beberapa size short di $BTC and $XAUT yang udah gua short dan gua bahas di live",
      "ke": 20,
      "dari": 22,
+     "kartuGerak": 0.91,
+     "kartuStatus": null,
      "pair": "BTCUSDT",
      "bursa": "spot",
      "masuk": 62828.11,
-     "imbal": 0.26,
+     "imbal": 0.91,
      "imbal7h": -3.59,
      "imbalTutup": -0.75,
      "imbalSampai": "2026-07-17T08:57:05.550000+00:00",
@@ -4392,13 +4372,14 @@
      "hasilAkhir": "untung",
      "sumberHasil": "analis",
      "statusSumber": "analis",
-     "imbalSumber": "harga"
+     "imbalHarga": 0.26,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "XAUT",
      "penulis": "Jaxx",
      "arah": "short",
-     "entry": null,
+     "entry": 751.19,
      "target": null,
      "stop": null,
      "status": "TP",
@@ -4425,7 +4406,7 @@
        }
       }
      ],
-     "dasarTP": "balasan menunjukkan untung",
+     "dasarTP": "kartu posisi tanpa status",
      "tpKe": null,
      "klaimTeks": "Oh ya ini jg SP and NQ dah jalan lagi after kemaren floating lumayan gede dan sempet AVG down.",
      "klaimWaktu": "2026-07-17T08:57:05.550000+00:00",
@@ -4434,10 +4415,12 @@
      "kutipan": "Tambahin beberapa size short di $BTC and $XAUT yang udah gua short dan gua bahas di live",
      "ke": 2,
      "dari": 2,
+     "kartuGerak": 0.91,
+     "kartuStatus": null,
      "pair": "XAUTUSDT",
      "bursa": "spot",
      "masuk": 3996.36,
-     "imbal": 0.12,
+     "imbal": 0.91,
      "imbal7h": -1.48,
      "imbalTutup": 0.02,
      "imbalSampai": "2026-07-17T08:57:05.550000+00:00",
@@ -4450,7 +4433,8 @@
      "hasilAkhir": "untung",
      "sumberHasil": "analis",
      "statusSumber": "analis",
-     "imbalSumber": "harga"
+     "imbalHarga": 0.12,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "TIA",
@@ -5030,20 +5014,6 @@
        "gambar": [
         "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
        ]
-      },
-      {
-       "waktu": "2026-07-08T15:10:06.956000+00:00",
-       "teks": "I hope u guys watched the live recording, much alpha disitu and trade plan",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524432400887845118",
-       "gambar": []
-      },
-      {
-       "waktu": "2026-07-09T06:06:07.768000+00:00",
-       "teks": "**Brief Update:\n\n<@&1246803191505358928> \n**Beberapa support di Naked Chart and Vwaps cukup strong dan dapet mommentum mantul, plan gua masih sama biar ga spt k",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524657890076528720",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
-       ]
       }
      ],
      "dasarTP": null,
@@ -5145,11 +5115,11 @@
      "aset": "BTC",
      "penulis": "Jaxx",
      "arah": "short",
-     "entry": null,
+     "entry": 61840.0,
      "target": null,
      "stop": null,
-     "status": "Open",
-     "klaim": null,
+     "status": "SL",
+     "klaim": "diaku kena stop",
      "kabar": [
       {
        "waktu": "2026-07-06T21:10:03.556000+00:00",
@@ -5682,17 +5652,9 @@
         "waktu": null,
         "gerak": -3.83
        }
-      },
-      {
-       "waktu": "2026-07-06T21:10:03.556000+00:00",
-       "teks": "🆑",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1523798207862411535",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
-       ]
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi closed",
      "tpKe": null,
      "klaimTeks": null,
      "klaimWaktu": null,
@@ -5701,17 +5663,26 @@
      "kutipan": "$BTC SHORT",
      "ke": 17,
      "dari": 22,
+     "kartuGerak": -3.83,
+     "kartuStatus": "closed",
      "pair": "BTCUSDT",
      "bursa": "spot",
      "masuk": 63545.98,
-     "imbal": 1.98,
+     "imbal": -3.83,
+     "imbal7h": 1.98,
+     "imbalTutup": 1.98,
+     "imbalSampai": null,
+     "imbalDasar": "horizon",
+     "hariDinilaiKlaim": 7.2,
      "terbaik": 3.15,
      "terburuk": -1.82,
      "hariDinilai": 7.0,
-     "hasil": "untung",
-     "hasilAkhir": "untung",
-     "sumberHasil": "harga",
-     "imbalSumber": "harga"
+     "hasil": "rugi",
+     "hasilAkhir": "rugi",
+     "sumberHasil": "analis",
+     "statusSumber": "analis",
+     "imbalHarga": -1.82,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "AAVE",
@@ -6053,12 +6024,6 @@
        "teks": "Masih msk pelan” incase ada pump",
        "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
        "gambar": []
-      },
-      {
-       "waktu": "2026-06-29T14:25:50.902000+00:00",
-       "teks": "Masih msk pelan” incase ada pump",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
-       "gambar": []
       }
      ],
      "dasarTP": null,
@@ -6222,7 +6187,7 @@
      "aset": "SOLANA",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 69.12,
      "target": 63.37,
      "stop": 70.83,
      "status": "TP",
@@ -6248,7 +6213,7 @@
        }
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi holding",
      "tpKe": "Full TP",
      "klaimTeks": "full TP\n\n<@&1246803191505358928>",
      "klaimWaktu": "2026-06-25T13:59:37.677000+00:00",
@@ -6257,10 +6222,12 @@
      "kutipan": "$SHORT SOLANA",
      "ke": 1,
      "dari": 2,
+     "kartuGerak": 1.17,
+     "kartuStatus": "holding",
      "pair": "SOLUSDT",
      "bursa": "spot",
      "masuk": 68.18,
-     "imbal": 6.07,
+     "imbal": 1.17,
      "imbal7h": -18.6,
      "imbalTutup": 2.73,
      "imbalSampai": "2026-06-25T13:59:37.677000+00:00",
@@ -6273,7 +6240,8 @@
      "hasilAkhir": "untung",
      "sumberHasil": "analis",
      "statusSumber": "analis",
-     "imbalSumber": "harga"
+     "imbalHarga": 6.07,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "JTO",
@@ -7310,14 +7278,6 @@
         "waktu": null,
         "gerak": null
        }
-      },
-      {
-       "waktu": "2026-06-15T03:12:25.658000+00:00",
-       "teks": "Congrats <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1515916867804336218",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1199773381873127496/1515916867477311509/IMG_3027.png?ex=6aaf4f19&is=6aadfd99&hm=c14f42450614712d5218fa0ea5717f8e84019abe80afb8706755be8304bd3238&"
-       ]
       }
      ],
      "dasarTP": null,
@@ -7329,6 +7289,8 @@
      "kutipan": "Enak long gold senin",
      "ke": 2,
      "dari": 2,
+     "kartuGerak": null,
+     "kartuStatus": "holding",
      "pair": null,
      "bursa": null,
      "hasil": "tidak ada di Binance",
@@ -8439,11 +8401,11 @@
      "aset": "NIGHT",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 0.0363,
      "target": null,
      "stop": null,
-     "status": "Open",
-     "klaim": null,
+     "status": "TP",
+     "klaim": "diaku TP kena",
      "kabar": [
       {
        "waktu": "2026-05-29T05:49:27.509000+00:00",
@@ -8976,17 +8938,9 @@
         "waktu": "2026-05-29 07:44:38",
         "gerak": 2.59
        }
-      },
-      {
-       "waktu": "2026-05-29T05:49:27.509000+00:00",
-       "teks": "Tired of winning <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1509795792196603985",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1456034054737756270/1509795791743615007/IMG_2321.jpg?ex=6aaf73e7&is=6aae2267&hm=4f1c965e0f2800594d1e9df18a00238c02048e13a0fd0e797a8ed157f20d6c4d&"
-       ]
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi holding",
      "tpKe": null,
      "klaimTeks": null,
      "klaimWaktu": null,
@@ -8995,17 +8949,26 @@
      "kutipan": "**SHORT $NIGHT IDEA**",
      "ke": 1,
      "dari": 1,
+     "kartuGerak": 2.59,
+     "kartuStatus": "holding",
      "pair": "NIGHTUSDT",
      "bursa": "spot",
      "masuk": 0.03566,
-     "imbal": 6.79,
+     "imbal": 2.59,
+     "imbal7h": 6.79,
+     "imbalTutup": 6.79,
+     "imbalSampai": null,
+     "imbalDasar": "horizon",
+     "hariDinilaiKlaim": 7.2,
      "terbaik": 7.57,
      "terburuk": -16.91,
      "hariDinilai": 7.0,
      "hasil": "untung",
      "hasilAkhir": "untung",
-     "sumberHasil": "harga",
-     "imbalSumber": "harga"
+     "sumberHasil": "analis",
+     "statusSumber": "analis",
+     "imbalHarga": 7.57,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "BTC",
@@ -9536,12 +9499,6 @@
      "status": "Jalan",
      "klaim": "diaku sedang jalan",
      "kabar": [
-      {
-       "waktu": "2026-05-18T12:17:17.521000+00:00",
-       "teks": "Sesuai ya turun <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1505907127179415572",
-       "gambar": []
-      },
       {
        "waktu": "2026-05-18T12:17:17.521000+00:00",
        "teks": "Sesuai ya turun <@&1246803191505358928>",
@@ -10311,18 +10268,6 @@
        "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
        "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
        "gambar": []
-      },
-      {
-       "waktu": "2026-05-07T15:26:24.314000+00:00",
-       "teks": "sesuai ya <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501968452557213786",
-       "gambar": []
-      },
-      {
-       "waktu": "2026-05-21T05:44:11.858000+00:00",
-       "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
-       "gambar": []
       }
      ],
      "dasarTP": null,
@@ -10692,14 +10637,6 @@
        "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
        "gambar": [
         "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6a9eeccc&is=6a9d9b4c&hm=645d696b8108f533c8804988fd0e75eff5fe95ae9e1e649c4d91fd7fdac7778a&"
-       ]
-      },
-      {
-       "waktu": "2026-05-06T04:56:44.234000+00:00",
-       "teks": "**SHORT $ENA**\n\nReason: rejecting on supply zone\n\nTarget 8% dengan sl di -2,9%\n\nRR 1:3\n\nDYOR and NFA!\n\n<@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6aaf678c&is=6aae160c&hm=98584752cbd8a8d137bf5e3f1ed8a819c914c73ca4adea3dc7c7f23914fa0b2b&"
        ]
       },
       {
@@ -11112,11 +11049,11 @@
      "aset": "HYPE",
      "penulis": "Jaxx",
      "arah": "short",
-     "entry": null,
+     "entry": 76529.5,
      "target": null,
      "stop": null,
-     "status": "Open",
-     "klaim": null,
+     "status": "TP",
+     "klaim": "diaku TP kena",
      "kabar": [
       {
        "waktu": "2026-04-28T15:08:26.891000+00:00",
@@ -11617,18 +11554,9 @@
         "waktu": null,
         "gerak": 1.13
        }
-      },
-      {
-       "waktu": "2026-04-28T15:08:26.891000+00:00",
-       "teks": "BTC gua sempet DCA and kalo $HYPE bener2 baru masuk <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1498702442727215114",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1199773381873127499/1498702441447952486/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=e4a2993ed8eb1adc78a6f3836bd5ccd8e63320a51509384ed4c347c85ca44e8e&",
-        "https://cdn.discordapp.com/attachments/1199773381873127499/1498702442236477523/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=988183ac88647eec14328cdf77f94b0147c125740a46741591cfa3aa10484a3b&"
-       ]
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi tanpa status",
      "tpKe": null,
      "klaimTeks": null,
      "klaimWaktu": null,
@@ -11637,17 +11565,26 @@
      "kutipan": "Gua baru open short untuk $HYPE and $BTC",
      "ke": 2,
      "dari": 4,
+     "kartuGerak": 1.13,
+     "kartuStatus": null,
      "pair": "HYPEUSDT",
      "bursa": "futures",
      "masuk": 40.119,
-     "imbal": -9.75,
+     "imbal": 1.13,
+     "imbal7h": -9.75,
+     "imbalTutup": -9.75,
+     "imbalSampai": null,
+     "imbalDasar": "horizon",
+     "hariDinilaiKlaim": 7.2,
      "terbaik": 3.52,
      "terburuk": -10.23,
      "hariDinilai": 7.0,
-     "hasil": "rugi",
-     "hasilAkhir": "rugi",
-     "sumberHasil": "harga",
-     "imbalSumber": "harga"
+     "hasil": "untung",
+     "hasilAkhir": "untung",
+     "sumberHasil": "analis",
+     "statusSumber": "analis",
+     "imbalHarga": 3.52,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "BTC",
@@ -11900,7 +11837,7 @@
      "aset": "MERL",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 0.0382,
      "target": null,
      "stop": null,
      "status": "TP",
@@ -11926,7 +11863,7 @@
        }
       }
      ],
-     "dasarTP": "balasan menunjukkan untung",
+     "dasarTP": "kartu posisi holding",
      "tpKe": null,
      "klaimTeks": "Jangan cape profit mulu ya <@&1246803191505358928>",
      "klaimWaktu": "2026-04-21T04:06:41.152000+00:00",
@@ -11935,10 +11872,12 @@
      "kutipan": "SHORT $MERL",
      "ke": 1,
      "dari": 1,
+     "kartuGerak": 3.53,
+     "kartuStatus": "holding",
      "pair": "MERLUSDT",
      "bursa": "futures",
      "masuk": 0.03811,
-     "imbal": 4.38,
+     "imbal": 3.53,
      "imbal7h": -2.1,
      "imbalTutup": 2.26,
      "imbalSampai": "2026-04-21T04:06:41.152000+00:00",
@@ -11951,7 +11890,8 @@
      "hasilAkhir": "untung",
      "sumberHasil": "analis",
      "statusSumber": "analis",
-     "imbalSumber": "harga"
+     "imbalHarga": 4.38,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "PEPE",
@@ -12117,15 +12057,6 @@
        "gambar": [
         "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6a9ed4cf&is=6a9d834f&hm=9d3356a0872d59c0835ceb6828bceb8ff41f6a54334746bcddc7262ed4fcb8e2&",
         "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6a9ed4cf&is=6a9d834f&hm=3d5e07e959cc5ccf72159d40076b900f71c85261521bf4607126ffac4b6cc1c5&"
-       ]
-      },
-      {
-       "waktu": "2026-04-28T15:14:23.716000+00:00",
-       "teks": "Masih sama viewnya buat $ETH and $SOL <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1498703939359739954",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6d996a182a3d72af46658c1b7102eb8ee986f3026fce49febcef90118bc3add5&",
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6354d6cd1a2d8a30fba3531cdc5f05651267cc8816979b30d372d89e8f3f9b33&"
        ]
       },
       {
@@ -12368,11 +12299,11 @@
      "aset": "ETHFI",
      "penulis": "Lynx",
      "arah": "short",
-     "entry": null,
+     "entry": 0.4645,
      "target": null,
      "stop": null,
-     "status": "Open",
-     "klaim": null,
+     "status": "TP",
+     "klaim": "diaku TP kena",
      "kabar": [
       {
        "waktu": "2026-04-16T10:33:35.026000+00:00",
@@ -13073,23 +13004,9 @@
        "teks": "Semoga tadi kalian SL+",
        "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
        "gambar": []
-      },
-      {
-       "waktu": "2026-04-16T10:33:35.026000+00:00",
-       "teks": "Gas? <@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494284616444543137",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1456034054737756270/1494284616042024990/IMG_0795.jpg?ex=6aaf0dbe&is=6aadbc3e&hm=5af65d504968e7720888bd0cdf680494bf66e8cfe9ea94039ffe24228ab82a55&"
-       ]
-      },
-      {
-       "waktu": "2026-04-16T19:54:13.331000+00:00",
-       "teks": "Semoga tadi kalian SL+",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
-       "gambar": []
       }
      ],
-     "dasarTP": null,
+     "dasarTP": "kartu posisi holding",
      "tpKe": null,
      "klaimTeks": null,
      "klaimWaktu": null,
@@ -13098,17 +13015,26 @@
      "kutipan": "**SHORT $ETHFI**",
      "ke": 1,
      "dari": 1,
+     "kartuGerak": 1.7,
+     "kartuStatus": "holding",
      "pair": "ETHFIUSDT",
      "bursa": "spot",
      "masuk": 0.46,
-     "imbal": 0.22,
+     "imbal": 1.7,
+     "imbal7h": 0.22,
+     "imbalTutup": 0.22,
+     "imbalSampai": null,
+     "imbalDasar": "horizon",
+     "hariDinilaiKlaim": 7.2,
      "terbaik": 3.48,
      "terburuk": -16.74,
      "hariDinilai": 7.0,
      "hasil": "untung",
      "hasilAkhir": "untung",
-     "sumberHasil": "harga",
-     "imbalSumber": "harga"
+     "sumberHasil": "analis",
+     "statusSumber": "analis",
+     "imbalHarga": 3.48,
+     "imbalSumber": "kartu"
     },
     {
      "aset": "HUSDT",
@@ -13413,20 +13339,6 @@
        "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
        "gambar": [
         "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6a9f1489&is=6a9dc309&hm=dbf282d19a11e4e4573ea49f96962030f178b343a2eead576ff9793b42e09df5&"
-       ]
-      },
-      {
-       "waktu": "2026-04-17T13:40:09.611000+00:00",
-       "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-       "gambar": []
-      },
-      {
-       "waktu": "2026-04-20T07:46:17.495000+00:00",
-       "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
        ]
       },
       {
@@ -13811,20 +13723,6 @@
        "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
        "gambar": [
         "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6a9f1489&is=6a9dc309&hm=dbf282d19a11e4e4573ea49f96962030f178b343a2eead576ff9793b42e09df5&"
-       ]
-      },
-      {
-       "waktu": "2026-04-17T13:40:09.611000+00:00",
-       "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-       "gambar": []
-      },
-      {
-       "waktu": "2026-04-20T07:46:17.495000+00:00",
-       "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-       "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-       "gambar": [
-        "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
        ]
       },
       {
@@ -14510,12 +14408,6 @@
        "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
        "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490761533121105981",
        "gambar": []
-      },
-      {
-       "waktu": "2026-04-06T17:14:06.506000+00:00",
-       "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490761533121105981",
-       "gambar": []
       }
      ],
      "dasarTP": null,
@@ -14586,12 +14478,6 @@
      "status": "SL",
      "klaim": null,
      "kabar": [
-      {
-       "waktu": "2026-04-06T09:43:44.991000+00:00",
-       "teks": "Sl guys sorry",
-       "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490648196672786453",
-       "gambar": []
-      },
       {
        "waktu": "2026-04-06T09:43:44.991000+00:00",
        "teks": "Sl guys sorry",
@@ -16880,9 +16766,9 @@
    "lain": 1
   },
   "2026-08-25": {
-   "tp": 2,
+   "tp": 3,
    "sl": 0,
-   "lain": 1
+   "lain": 0
   },
   "2026-08-24": {
    "tp": 0,
@@ -17015,9 +16901,9 @@
    "lain": 0
   },
   "2026-07-20": {
-   "tp": 0,
+   "tp": 1,
    "sl": 0,
-   "lain": 1
+   "lain": 0
   },
   "2026-07-19": {
    "tp": 0,
@@ -17056,8 +16942,8 @@
   },
   "2026-07-06": {
    "tp": 0,
-   "sl": 1,
-   "lain": 1
+   "sl": 2,
+   "lain": 0
   },
   "2026-07-04": {
    "tp": 1,
@@ -17220,9 +17106,9 @@
    "lain": 1
   },
   "2026-05-28": {
-   "tp": 1,
+   "tp": 2,
    "sl": 0,
-   "lain": 1
+   "lain": 0
   },
   "2026-05-27": {
    "tp": 1,
@@ -17335,9 +17221,9 @@
    "lain": 1
   },
   "2026-04-28": {
-   "tp": 5,
+   "tp": 6,
    "sl": 0,
-   "lain": 1
+   "lain": 0
   },
   "2026-04-27": {
    "tp": 1,
@@ -17380,9 +17266,9 @@
    "lain": 0
   },
   "2026-04-16": {
-   "tp": 0,
+   "tp": 1,
    "sl": 0,
-   "lain": 1
+   "lain": 0
   },
   "2026-04-15": {
    "tp": 1,
@@ -17537,289 +17423,289 @@
  },
  "pasar": {
   "BTC": {
-   "mcap": 1632904026446,
-   "vol24": 39968320912,
-   "harga": 81294
+   "mcap": 1631884609813,
+   "vol24": 39965742942,
+   "harga": 81242
   },
   "ETH": {
-   "mcap": 322301530804,
-   "vol24": 21829087340,
-   "harga": 2640.48
+   "mcap": 321388505731,
+   "vol24": 21727274308,
+   "harga": 2633.19
   },
   "BNB": {
-   "mcap": 102064860778,
-   "vol24": 1307336313,
-   "harga": 766.48
+   "mcap": 101753882766,
+   "vol24": 1337214986,
+   "harga": 764.23
   },
   "XRP": {
-   "mcap": 88826377134,
-   "vol24": 4290075900,
+   "mcap": 88662749820,
+   "vol24": 4303623818,
    "harga": 1.41
   },
   "SOL": {
-   "mcap": 65656124728,
-   "vol24": 5517117313,
-   "harga": 111.79
+   "mcap": 65511743567,
+   "vol24": 5548938139,
+   "harga": 111.55
   },
   "ZEC": {
-   "mcap": 26549194231,
-   "vol24": 1606725960,
-   "harga": 1567.23
+   "mcap": 26609620212,
+   "vol24": 1592177831,
+   "harga": 1570.12
   },
   "HYPE": {
-   "mcap": 20459163260,
-   "vol24": 1609568616,
-   "harga": 91.97
+   "mcap": 20460796183,
+   "vol24": 1691973093,
+   "harga": 91.98
   },
   "DOGE": {
-   "mcap": 13608645880,
-   "vol24": 1106235888,
-   "harga": 0.087247
+   "mcap": 13551974972,
+   "vol24": 1155526973,
+   "harga": 0.086883
   },
   "XMR": {
-   "mcap": 10837087145,
-   "vol24": 209787178,
-   "harga": 576.24
+   "mcap": 10860914597,
+   "vol24": 218598417,
+   "harga": 577.8
   },
   "UNI": {
-   "mcap": 5732890886,
-   "vol24": 1782682314,
-   "harga": 9.23
+   "mcap": 5689358735,
+   "vol24": 1802081285,
+   "harga": 9.16
   },
   "NEAR": {
-   "mcap": 4835405636,
-   "vol24": 1331146038,
-   "harga": 3.7
+   "mcap": 4772086246,
+   "vol24": 1505182746,
+   "harga": 3.65
   },
   "HBAR": {
-   "mcap": 3482142636,
-   "vol24": 92344816,
-   "harga": 0.079443
+   "mcap": 3470696432,
+   "vol24": 91584692,
+   "harga": 0.079171
   },
   "SUI": {
-   "mcap": 3424736471,
-   "vol24": 775679099,
-   "harga": 0.836008
+   "mcap": 3385218914,
+   "vol24": 793416413,
+   "harga": 0.826755
   },
   "TAO": {
-   "mcap": 3006162134,
-   "vol24": 301219617,
-   "harga": 265.1
+   "mcap": 3008222030,
+   "vol24": 296700199,
+   "harga": 265.25
   },
   "XAUT": {
-   "mcap": 2722611441,
-   "vol24": 147489000,
-   "harga": 4371.4
+   "mcap": 2722375054,
+   "vol24": 150374642,
+   "harga": 4371.04
   },
   "AAVE": {
-   "mcap": 2234757527,
-   "vol24": 385825121,
-   "harga": 144.85
+   "mcap": 2225123672,
+   "vol24": 386088003,
+   "harga": 144.22
   },
   "ASTER": {
-   "mcap": 2054177227,
-   "vol24": 142537412,
-   "harga": 0.759661
+   "mcap": 2045667798,
+   "vol24": 140259009,
+   "harga": 0.756349
   },
   "ONDO": {
-   "mcap": 1976513070,
-   "vol24": 215229490,
-   "harga": 0.405911
+   "mcap": 1962972313,
+   "vol24": 212652816,
+   "harga": 0.403131
   },
   "ENA": {
-   "mcap": 1919452408,
-   "vol24": 638957011,
-   "harga": 0.190133
+   "mcap": 1896825235,
+   "vol24": 635062513,
+   "harga": 0.187886
   },
   "PEPE": {
-   "mcap": 1586014453,
-   "vol24": 319259208,
-   "harga": 3.77e-06
+   "mcap": 1582899183,
+   "vol24": 321776543,
+   "harga": 3.76e-06
   },
   "WLD": {
-   "mcap": 1522115745,
-   "vol24": 255202925,
-   "harga": 0.422803
+   "mcap": 1508619032,
+   "vol24": 262396556,
+   "harga": 0.419042
   },
   "ARB": {
-   "mcap": 1453650088,
-   "vol24": 510703624,
-   "harga": 0.214227
+   "mcap": 1451709610,
+   "vol24": 520860825,
+   "harga": 0.213917
   },
   "VVV": {
-   "mcap": 1355896805,
-   "vol24": 103077958,
-   "harga": 28.22
+   "mcap": 1335887479,
+   "vol24": 99001618,
+   "harga": 27.8
   },
   "LIT": {
-   "mcap": 1268911194,
-   "vol24": 103868632,
-   "harga": 5.08
+   "mcap": 1265985824,
+   "vol24": 103220418,
+   "harga": 5.06
   },
   "QNT": {
-   "mcap": 935241355,
-   "vol24": 9667061,
-   "harga": 64.3
+   "mcap": 930894717,
+   "vol24": 9536446,
+   "harga": 63.97
   },
   "ALGO": {
-   "mcap": 880961028,
-   "vol24": 46872350,
-   "harga": 0.097428
+   "mcap": 876277076,
+   "vol24": 41894926,
+   "harga": 0.096931
   },
   "INJ": {
-   "mcap": 746636628,
-   "vol24": 327533990,
-   "harga": 7.47
+   "mcap": 744772130,
+   "vol24": 293536963,
+   "harga": 7.45
   },
   "ETHFI": {
-   "mcap": 716354709,
-   "vol24": 79237284,
-   "harga": 0.742067
+   "mcap": 707659401,
+   "vol24": 79950663,
+   "harga": 0.733096
   },
   "AERO": {
-   "mcap": 675047590,
-   "vol24": 85232249,
-   "harga": 0.680021
+   "mcap": 664786429,
+   "vol24": 84107784,
+   "harga": 0.669674
   },
   "PENGU": {
-   "mcap": 494662809,
-   "vol24": 203259929,
-   "harga": 0.00786923
+   "mcap": 490866771,
+   "vol24": 205169144,
+   "harga": 0.00780787
   },
   "VIRTUAL": {
-   "mcap": 442987909,
-   "vol24": 62992725,
-   "harga": 0.672839
+   "mcap": 441329864,
+   "vol24": 62769134,
+   "harga": 0.670256
   },
   "FET": {
-   "mcap": 420530330,
-   "vol24": 105244214,
-   "harga": 0.18193
+   "mcap": 420324385,
+   "vol24": 106163142,
+   "harga": 0.181859
   },
   "NIGHT": {
-   "mcap": 411925617,
-   "vol24": 10776384,
-   "harga": 0.02480374
+   "mcap": 409115035,
+   "vol24": 10432104,
+   "harga": 0.02463284
   },
   "ZRO": {
-   "mcap": 399690873,
-   "vol24": 46554157,
+   "mcap": 400310280,
+   "vol24": 48558163,
    "harga": 1.13
   },
   "TIA": {
-   "mcap": 396842320,
-   "vol24": 59938432,
-   "harga": 0.408918
+   "mcap": 396186563,
+   "vol24": 59685826,
+   "harga": 0.408218
   },
   "SUN": {
-   "mcap": 327634346,
-   "vol24": 20691006,
-   "harga": 0.0170446
+   "mcap": 327915842,
+   "vol24": 20461604,
+   "harga": 0.01705687
   },
   "SEI": {
-   "mcap": 324596873,
-   "vol24": 47708804,
-   "harga": 0.04820746
+   "mcap": 323558964,
+   "vol24": 47118315,
+   "harga": 0.04804881
   },
   "AR": {
-   "mcap": 290043591,
-   "vol24": 181871157,
-   "harga": 4.42
+   "mcap": 295908944,
+   "vol24": 178038363,
+   "harga": 4.51
   },
   "SYRUP": {
-   "mcap": 256940239,
-   "vol24": 9813159,
-   "harga": 0.22012
+   "mcap": 254417747,
+   "vol24": 10534794,
+   "harga": 0.21801
   },
   "XPL": {
-   "mcap": 252972609,
-   "vol24": 54073880,
-   "harga": 0.09107
+   "mcap": 252219972,
+   "vol24": 54199772,
+   "harga": 0.090801
   },
   "JTO": {
-   "mcap": 234610884,
-   "vol24": 46361340,
-   "harga": 0.44857
+   "mcap": 233383231,
+   "vol24": 46887328,
+   "harga": 0.446232
   },
   "GRASS": {
-   "mcap": 230827349,
-   "vol24": 21462403,
-   "harga": 0.340945
-  },
-  "EIGEN": {
-   "mcap": 213929320,
-   "vol24": 43497443,
-   "harga": 0.231204
+   "mcap": 229891323,
+   "vol24": 21496832,
+   "harga": 0.33952
   },
   "CASHCAT": {
-   "mcap": 213026270,
-   "vol24": 16536201,
-   "harga": 0.215621
+   "mcap": 213721438,
+   "vol24": 16622607,
+   "harga": 0.216209
+  },
+  "EIGEN": {
+   "mcap": 211466960,
+   "vol24": 42757948,
+   "harga": 0.228638
   },
   "ZAMA": {
-   "mcap": 191499101,
-   "vol24": 71547442,
-   "harga": 0.075603
+   "mcap": 188486378,
+   "vol24": 98548138,
+   "harga": 0.074786
   },
   "FARTCOIN": {
-   "mcap": 160848748,
-   "vol24": 36089706,
-   "harga": 0.160853
+   "mcap": 159997978,
+   "vol24": 35607502,
+   "harga": 0.159999
   },
   "CHZ": {
-   "mcap": 159748342,
-   "vol24": 28895115,
-   "harga": 0.01517106
+   "mcap": 158399275,
+   "vol24": 25591994,
+   "harga": 0.01505647
   },
   "SKR": {
-   "mcap": 139027830,
-   "vol24": 6648962,
-   "harga": 0.01986202
+   "mcap": 138182232,
+   "vol24": 6553643,
+   "harga": 0.01974885
   },
   "FORM": {
-   "mcap": 98976869,
-   "vol24": 3425919,
-   "harga": 0.259111
+   "mcap": 98220761,
+   "vol24": 3472878,
+   "harga": 0.257431
   },
   "KAITO": {
-   "mcap": 80989242,
-   "vol24": 20591710,
-   "harga": 0.335477
+   "mcap": 80466688,
+   "vol24": 22265418,
+   "harga": 0.333362
   },
   "PURR": {
-   "mcap": 73907619,
-   "vol24": 4835695,
-   "harga": 0.124234
+   "mcap": 76645355,
+   "vol24": 4904490,
+   "harga": 0.12886
   },
   "SUSHI": {
-   "mcap": 70646985,
-   "vol24": 15247870,
-   "harga": 0.246364
+   "mcap": 70609720,
+   "vol24": 16025331,
+   "harga": 0.246152
   },
   "ARC": {
-   "mcap": 67465499,
-   "vol24": 4370004,
-   "harga": 0.067471
+   "mcap": 68082097,
+   "vol24": 4503542,
+   "harga": 0.068079
   },
   "DEXE": {
-   "mcap": 65031561,
-   "vol24": 9587710,
+   "mcap": 64853300,
+   "vol24": 9659128,
    "harga": 1.84
   },
   "BIO": {
-   "mcap": 58350137,
-   "vol24": 12648219,
-   "harga": 0.02720934
+   "mcap": 58118708,
+   "vol24": 12727737,
+   "harga": 0.02709265
   },
   "ALLO": {
-   "mcap": 57008561,
-   "vol24": 7278516,
-   "harga": 0.227909
+   "mcap": 56916703,
+   "vol24": 8282089,
+   "harga": 0.227065
   },
   "MERL": {
-   "mcap": 52536506,
-   "vol24": 2205183,
-   "harga": 0.02501633
+   "mcap": 52141476,
+   "vol24": 2204555,
+   "harga": 0.0248765
   }
  },
  "baris": [
@@ -17845,7 +17731,7 @@
    "pair": "BTCUSDT",
    "bursa": "spot",
    "masuk": 81136.02,
-   "imbal": -0.24,
+   "imbal": -0.18,
    "terbaik": 0.28,
    "terburuk": -0.48,
    "hariDinilai": 0.2,
@@ -17876,7 +17762,7 @@
    "pair": "XMRUSDT",
    "bursa": "futures",
    "masuk": 539.39,
-   "imbal": 7.39,
+   "imbal": 7.86,
    "terbaik": 13.13,
    "terburuk": -1.87,
    "hariDinilai": 1.0,
@@ -17907,7 +17793,7 @@
    "pair": "ONDOUSDT",
    "bursa": "spot",
    "masuk": 0.3847,
-   "imbal": 5.51,
+   "imbal": 5.07,
    "terbaik": 7.95,
    "terburuk": -0.44,
    "hariDinilai": 1.0,
@@ -17939,7 +17825,7 @@
    "bursa": "spot",
    "masuk": 0.231,
    "imbal": 11.47,
-   "imbal7h": 6.75,
+   "imbal7h": 6.8,
    "imbalTutup": 6.15,
    "imbalSampai": "2026-09-18T13:04:05.585000+00:00",
    "imbalDasar": "klaim",
@@ -17976,7 +17862,7 @@
    "bursa": "futures",
    "masuk": 4.4804,
    "imbal": 2.72,
-   "imbal7h": 13.36,
+   "imbal7h": 13.53,
    "imbalTutup": 2.72,
    "imbalSampai": "2026-09-16T19:07:06.694000+00:00",
    "imbalDasar": "klaim",
@@ -18012,7 +17898,7 @@
    "pair": "BTCUSDT",
    "bursa": "spot",
    "masuk": 76080.0,
-   "imbal": -6.9,
+   "imbal": -6.83,
    "terbaik": 0.59,
    "terburuk": -7.44,
    "hariDinilai": 2.5,
@@ -18044,7 +17930,7 @@
    "bursa": "futures",
    "masuk": 4.4804,
    "imbal": 12.42,
-   "imbal7h": 13.36,
+   "imbal7h": 13.53,
    "imbalTutup": 9.25,
    "imbalSampai": "2026-09-17T08:43:18.620000+00:00",
    "imbalDasar": "klaim",
@@ -18081,7 +17967,7 @@
    "bursa": "spot",
    "masuk": 6.695,
    "imbal": -7.87,
-   "imbal7h": 37.18,
+   "imbal7h": 37.58,
    "imbalTutup": -4.3,
    "imbalSampai": "2026-09-15T16:31:02.597000+00:00",
    "imbalDasar": "klaim",
@@ -18117,8 +18003,8 @@
    "pair": "ZECUSDT",
    "bursa": "spot",
    "masuk": 1137.97,
-   "imbal": 37.66,
-   "terbaik": 40.19,
+   "imbal": 38.45,
+   "terbaik": 39.58,
    "terburuk": -4.55,
    "hariDinilai": 4.7,
    "hasil": "invalidasi tersentuh",
@@ -18414,12 +18300,6 @@
      "teks": "Sempat pump",
      "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1546375289917931520",
      "gambar": []
-    },
-    {
-     "waktu": "2026-09-07T04:23:19.380000+00:00",
-     "teks": "Sempat pump",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1546375289917931520",
-     "gambar": []
     }
    ],
    "dasarTP": null,
@@ -18543,12 +18423,6 @@
      "teks": "Pump tuh 75 persen",
      "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
      "gambar": []
-    },
-    {
-     "waktu": "2026-09-05T18:47:31.099000+00:00",
-     "teks": "Pump tuh 75 persen",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
-     "gambar": []
     }
    ],
    "dasarTP": null,
@@ -18574,13 +18448,13 @@
    "entry": null,
    "target": null,
    "stop": 0.0607,
-   "status": "BE",
-   "klaim": "diaku BE",
+   "status": "Open",
+   "klaim": null,
    "kabar": [],
    "dasarTP": null,
    "tpKe": null,
-   "klaimTeks": "<@&1246803191505358928> Still long INIT - have not moved stops BE yet. Another chance at an entry here for anyone who missed Still expecting higher, send it up",
-   "klaimWaktu": "2026-09-11T11:06:45.894000+00:00",
+   "klaimTeks": null,
+   "klaimWaktu": null,
    "waktu": "2026-09-04T14:13:21.650000+00:00",
    "sumber": "https://discord.com/channels/1199773381097181317/1317766865749020802/1545436614203932755",
    "kutipan": "Going long INIT again here at CMP. 1H close under 0.0607 for stops, TPs above",
@@ -18589,19 +18463,13 @@
    "pair": "INITUSDT",
    "bursa": "spot",
    "masuk": 0.06367,
-   "imbal": 7.18,
-   "imbal7h": 9.24,
-   "imbalTutup": 7.18,
-   "imbalSampai": "2026-09-11T11:06:45.894000+00:00",
-   "imbalDasar": "klaim",
-   "hariDinilaiKlaim": 6.8,
+   "imbal": 9.24,
    "terbaik": 11.84,
    "terburuk": -1.37,
    "hariDinilai": 7.0,
    "hasil": "untung",
-   "hasilAkhir": "impas",
-   "sumberHasil": "analis",
-   "statusSumber": "analis",
+   "hasilAkhir": "untung",
+   "sumberHasil": "harga",
    "imbalSumber": "harga"
   },
   {
@@ -19071,11 +18939,11 @@
    "aset": "HYPE",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 82.279,
    "target": null,
    "stop": null,
-   "status": "Ditutup",
-   "klaim": "diaku ditutup",
+   "status": "TP",
+   "klaim": "diaku TP kena",
    "kabar": [
     {
      "waktu": "2026-08-25T20:43:13.888000+00:00",
@@ -19610,7 +19478,7 @@
      }
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi holding",
    "tpKe": null,
    "klaimTeks": "**$HYPE OTL**\n\nWeekly timeframe, area support utama masih berada di sekitar 60. Namun, level kuncinya sekarang ada di 79.74. Kalau weekly candle berhasil closing di bawah level tersebut, maka skenario",
    "klaimWaktu": "2026-09-12T06:22:25.577000+00:00",
@@ -19619,10 +19487,12 @@
    "kutipan": "**SHORT $HYPE**",
    "ke": 3,
    "dari": 3,
+   "kartuGerak": 2.67,
+   "kartuStatus": "holding",
    "pair": "HYPEUSDT",
    "bursa": "futures",
    "masuk": 81.757,
-   "imbal": 3.31,
+   "imbal": 2.67,
    "imbal7h": -1.26,
    "imbalTutup": 3.31,
    "imbalSampai": "2026-09-12T06:22:25.577000+00:00",
@@ -19632,10 +19502,11 @@
    "terburuk": -6.14,
    "hariDinilai": 7.0,
    "hasil": "untung",
-   "hasilAkhir": "ditutup",
+   "hasilAkhir": "untung",
    "sumberHasil": "analis",
    "statusSumber": "analis",
-   "imbalSumber": "harga"
+   "imbalHarga": 4.4,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "FARTCOIN",
@@ -21121,14 +20992,6 @@
      "gambar": [
       "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
      ]
-    },
-    {
-     "waktu": "2026-07-28T12:26:52.254000+00:00",
-     "teks": "Target price yang gua punya untuk $NVDA atleast gua aiming for 182-172 range of price (Value Area Low). Kalo dikasih lanjut SL+ di 172 <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1531639076241936535",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
-     ]
     }
    ],
    "dasarTP": null,
@@ -21440,11 +21303,11 @@
    "aset": "AKEUSDT",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 0.0017028,
    "target": null,
    "stop": null,
-   "status": "Open",
-   "klaim": null,
+   "status": "TP",
+   "klaim": "diaku TP kena",
    "kabar": [
     {
      "waktu": "2026-07-20T06:21:56.887000+00:00",
@@ -21977,17 +21840,9 @@
       "waktu": "2026-07-20 13:21",
       "gerak": 5.63
      }
-    },
-    {
-     "waktu": "2026-07-20T06:21:56.887000+00:00",
-     "teks": "<@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1528648137491746826",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1456034054737756270/1528648136954740846/IMG_4524.png?ex=6aaf7b84&is=6aae2a04&hm=5ef01ba91f21010a9cfda7075cd0f4f744ce4042dcc1e8ef01937282f709265f&"
-     ]
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi tanpa status",
    "tpKe": null,
    "klaimTeks": null,
    "klaimWaktu": null,
@@ -21996,17 +21851,26 @@
    "kutipan": "$AKEUSDT SHORT",
    "ke": 1,
    "dari": 1,
+   "kartuGerak": 5.63,
+   "kartuStatus": null,
    "pair": "AKEUSDT",
    "bursa": "futures",
    "masuk": 0.0016872,
-   "imbal": -153.35,
+   "imbal": 5.63,
+   "imbal7h": -153.35,
+   "imbalTutup": -153.35,
+   "imbalSampai": null,
+   "imbalDasar": "horizon",
+   "hariDinilaiKlaim": 7.2,
    "terbaik": 19.75,
    "terburuk": -308.96,
    "hariDinilai": 7.0,
-   "hasil": "rugi",
-   "hasilAkhir": "rugi",
-   "sumberHasil": "harga",
-   "imbalSumber": "harga"
+   "hasil": "untung",
+   "hasilAkhir": "untung",
+   "sumberHasil": "analis",
+   "statusSumber": "analis",
+   "imbalHarga": 19.75,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "CASHCAT",
@@ -22143,7 +22007,7 @@
    "aset": "BTC",
    "penulis": "Jaxx",
    "arah": "short",
-   "entry": null,
+   "entry": 751.19,
    "target": null,
    "stop": null,
    "status": "TP",
@@ -22170,7 +22034,7 @@
      }
     }
    ],
-   "dasarTP": "balasan menunjukkan untung",
+   "dasarTP": "kartu posisi tanpa status",
    "tpKe": null,
    "klaimTeks": "Oh ya ini jg SP and NQ dah jalan lagi after kemaren floating lumayan gede dan sempet AVG down.",
    "klaimWaktu": "2026-07-17T08:57:05.550000+00:00",
@@ -22179,10 +22043,12 @@
    "kutipan": "Tambahin beberapa size short di $BTC and $XAUT yang udah gua short dan gua bahas di live",
    "ke": 20,
    "dari": 22,
+   "kartuGerak": 0.91,
+   "kartuStatus": null,
    "pair": "BTCUSDT",
    "bursa": "spot",
    "masuk": 62828.11,
-   "imbal": 0.26,
+   "imbal": 0.91,
    "imbal7h": -3.59,
    "imbalTutup": -0.75,
    "imbalSampai": "2026-07-17T08:57:05.550000+00:00",
@@ -22195,13 +22061,14 @@
    "hasilAkhir": "untung",
    "sumberHasil": "analis",
    "statusSumber": "analis",
-   "imbalSumber": "harga"
+   "imbalHarga": 0.26,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "XAUT",
    "penulis": "Jaxx",
    "arah": "short",
-   "entry": null,
+   "entry": 751.19,
    "target": null,
    "stop": null,
    "status": "TP",
@@ -22228,7 +22095,7 @@
      }
     }
    ],
-   "dasarTP": "balasan menunjukkan untung",
+   "dasarTP": "kartu posisi tanpa status",
    "tpKe": null,
    "klaimTeks": "Oh ya ini jg SP and NQ dah jalan lagi after kemaren floating lumayan gede dan sempet AVG down.",
    "klaimWaktu": "2026-07-17T08:57:05.550000+00:00",
@@ -22237,10 +22104,12 @@
    "kutipan": "Tambahin beberapa size short di $BTC and $XAUT yang udah gua short dan gua bahas di live",
    "ke": 2,
    "dari": 2,
+   "kartuGerak": 0.91,
+   "kartuStatus": null,
    "pair": "XAUTUSDT",
    "bursa": "spot",
    "masuk": 3996.36,
-   "imbal": 0.12,
+   "imbal": 0.91,
    "imbal7h": -1.48,
    "imbalTutup": 0.02,
    "imbalSampai": "2026-07-17T08:57:05.550000+00:00",
@@ -22253,7 +22122,8 @@
    "hasilAkhir": "untung",
    "sumberHasil": "analis",
    "statusSumber": "analis",
-   "imbalSumber": "harga"
+   "imbalHarga": 0.12,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "TIA",
@@ -22833,20 +22703,6 @@
      "gambar": [
       "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
      ]
-    },
-    {
-     "waktu": "2026-07-08T15:10:06.956000+00:00",
-     "teks": "I hope u guys watched the live recording, much alpha disitu and trade plan",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524432400887845118",
-     "gambar": []
-    },
-    {
-     "waktu": "2026-07-09T06:06:07.768000+00:00",
-     "teks": "**Brief Update:\n\n<@&1246803191505358928> \n**Beberapa support di Naked Chart and Vwaps cukup strong dan dapet mommentum mantul, plan gua masih sama biar ga spt k",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524657890076528720",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
-     ]
     }
    ],
    "dasarTP": null,
@@ -22948,11 +22804,11 @@
    "aset": "BTC",
    "penulis": "Jaxx",
    "arah": "short",
-   "entry": null,
+   "entry": 61840.0,
    "target": null,
    "stop": null,
-   "status": "Open",
-   "klaim": null,
+   "status": "SL",
+   "klaim": "diaku kena stop",
    "kabar": [
     {
      "waktu": "2026-07-06T21:10:03.556000+00:00",
@@ -23485,17 +23341,9 @@
       "waktu": null,
       "gerak": -3.83
      }
-    },
-    {
-     "waktu": "2026-07-06T21:10:03.556000+00:00",
-     "teks": "🆑",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1523798207862411535",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
-     ]
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi closed",
    "tpKe": null,
    "klaimTeks": null,
    "klaimWaktu": null,
@@ -23504,17 +23352,26 @@
    "kutipan": "$BTC SHORT",
    "ke": 17,
    "dari": 22,
+   "kartuGerak": -3.83,
+   "kartuStatus": "closed",
    "pair": "BTCUSDT",
    "bursa": "spot",
    "masuk": 63545.98,
-   "imbal": 1.98,
+   "imbal": -3.83,
+   "imbal7h": 1.98,
+   "imbalTutup": 1.98,
+   "imbalSampai": null,
+   "imbalDasar": "horizon",
+   "hariDinilaiKlaim": 7.2,
    "terbaik": 3.15,
    "terburuk": -1.82,
    "hariDinilai": 7.0,
-   "hasil": "untung",
-   "hasilAkhir": "untung",
-   "sumberHasil": "harga",
-   "imbalSumber": "harga"
+   "hasil": "rugi",
+   "hasilAkhir": "rugi",
+   "sumberHasil": "analis",
+   "statusSumber": "analis",
+   "imbalHarga": -1.82,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "AAVE",
@@ -23850,12 +23707,6 @@
      "teks": "Masih msk pelan” incase ada pump",
      "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
      "gambar": []
-    },
-    {
-     "waktu": "2026-06-29T14:25:50.902000+00:00",
-     "teks": "Masih msk pelan” incase ada pump",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
-     "gambar": []
     }
    ],
    "dasarTP": null,
@@ -24019,7 +23870,7 @@
    "aset": "SOLANA",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 69.12,
    "target": 63.37,
    "stop": 70.83,
    "status": "TP",
@@ -24045,7 +23896,7 @@
      }
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi holding",
    "tpKe": "Full TP",
    "klaimTeks": "full TP\n\n<@&1246803191505358928>",
    "klaimWaktu": "2026-06-25T13:59:37.677000+00:00",
@@ -24054,10 +23905,12 @@
    "kutipan": "$SHORT SOLANA",
    "ke": 1,
    "dari": 2,
+   "kartuGerak": 1.17,
+   "kartuStatus": "holding",
    "pair": "SOLUSDT",
    "bursa": "spot",
    "masuk": 68.18,
-   "imbal": 6.07,
+   "imbal": 1.17,
    "imbal7h": -18.6,
    "imbalTutup": 2.73,
    "imbalSampai": "2026-06-25T13:59:37.677000+00:00",
@@ -24070,7 +23923,8 @@
    "hasilAkhir": "untung",
    "sumberHasil": "analis",
    "statusSumber": "analis",
-   "imbalSumber": "harga"
+   "imbalHarga": 6.07,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "JTO",
@@ -25107,14 +24961,6 @@
       "waktu": null,
       "gerak": null
      }
-    },
-    {
-     "waktu": "2026-06-15T03:12:25.658000+00:00",
-     "teks": "Congrats <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1515916867804336218",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1199773381873127496/1515916867477311509/IMG_3027.png?ex=6aaf4f19&is=6aadfd99&hm=c14f42450614712d5218fa0ea5717f8e84019abe80afb8706755be8304bd3238&"
-     ]
     }
    ],
    "dasarTP": null,
@@ -25126,6 +24972,8 @@
    "kutipan": "Enak long gold senin",
    "ke": 2,
    "dari": 2,
+   "kartuGerak": null,
+   "kartuStatus": "holding",
    "pair": null,
    "bursa": null,
    "hasil": "tidak ada di Binance",
@@ -26230,11 +26078,11 @@
    "aset": "NIGHT",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 0.0363,
    "target": null,
    "stop": null,
-   "status": "Open",
-   "klaim": null,
+   "status": "TP",
+   "klaim": "diaku TP kena",
    "kabar": [
     {
      "waktu": "2026-05-29T05:49:27.509000+00:00",
@@ -26767,17 +26615,9 @@
       "waktu": "2026-05-29 07:44:38",
       "gerak": 2.59
      }
-    },
-    {
-     "waktu": "2026-05-29T05:49:27.509000+00:00",
-     "teks": "Tired of winning <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1509795792196603985",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1456034054737756270/1509795791743615007/IMG_2321.jpg?ex=6aaf73e7&is=6aae2267&hm=4f1c965e0f2800594d1e9df18a00238c02048e13a0fd0e797a8ed157f20d6c4d&"
-     ]
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi holding",
    "tpKe": null,
    "klaimTeks": null,
    "klaimWaktu": null,
@@ -26786,17 +26626,26 @@
    "kutipan": "**SHORT $NIGHT IDEA**",
    "ke": 1,
    "dari": 1,
+   "kartuGerak": 2.59,
+   "kartuStatus": "holding",
    "pair": "NIGHTUSDT",
    "bursa": "spot",
    "masuk": 0.03566,
-   "imbal": 6.79,
+   "imbal": 2.59,
+   "imbal7h": 6.79,
+   "imbalTutup": 6.79,
+   "imbalSampai": null,
+   "imbalDasar": "horizon",
+   "hariDinilaiKlaim": 7.2,
    "terbaik": 7.57,
    "terburuk": -16.91,
    "hariDinilai": 7.0,
    "hasil": "untung",
    "hasilAkhir": "untung",
-   "sumberHasil": "harga",
-   "imbalSumber": "harga"
+   "sumberHasil": "analis",
+   "statusSumber": "analis",
+   "imbalHarga": 7.57,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "BTC",
@@ -27327,12 +27176,6 @@
    "status": "Jalan",
    "klaim": "diaku sedang jalan",
    "kabar": [
-    {
-     "waktu": "2026-05-18T12:17:17.521000+00:00",
-     "teks": "Sesuai ya turun <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1505907127179415572",
-     "gambar": []
-    },
     {
      "waktu": "2026-05-18T12:17:17.521000+00:00",
      "teks": "Sesuai ya turun <@&1246803191505358928>",
@@ -28102,18 +27945,6 @@
      "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
      "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
      "gambar": []
-    },
-    {
-     "waktu": "2026-05-07T15:26:24.314000+00:00",
-     "teks": "sesuai ya <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501968452557213786",
-     "gambar": []
-    },
-    {
-     "waktu": "2026-05-21T05:44:11.858000+00:00",
-     "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
-     "gambar": []
     }
    ],
    "dasarTP": null,
@@ -28483,14 +28314,6 @@
      "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
      "gambar": [
       "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6a9eeccc&is=6a9d9b4c&hm=645d696b8108f533c8804988fd0e75eff5fe95ae9e1e649c4d91fd7fdac7778a&"
-     ]
-    },
-    {
-     "waktu": "2026-05-06T04:56:44.234000+00:00",
-     "teks": "**SHORT $ENA**\n\nReason: rejecting on supply zone\n\nTarget 8% dengan sl di -2,9%\n\nRR 1:3\n\nDYOR and NFA!\n\n<@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6aaf678c&is=6aae160c&hm=98584752cbd8a8d137bf5e3f1ed8a819c914c73ca4adea3dc7c7f23914fa0b2b&"
      ]
     },
     {
@@ -28897,11 +28720,11 @@
    "aset": "HYPE",
    "penulis": "Jaxx",
    "arah": "short",
-   "entry": null,
+   "entry": 76529.5,
    "target": null,
    "stop": null,
-   "status": "Open",
-   "klaim": null,
+   "status": "TP",
+   "klaim": "diaku TP kena",
    "kabar": [
     {
      "waktu": "2026-04-28T15:08:26.891000+00:00",
@@ -29402,18 +29225,9 @@
       "waktu": null,
       "gerak": 1.13
      }
-    },
-    {
-     "waktu": "2026-04-28T15:08:26.891000+00:00",
-     "teks": "BTC gua sempet DCA and kalo $HYPE bener2 baru masuk <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1498702442727215114",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1199773381873127499/1498702441447952486/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=e4a2993ed8eb1adc78a6f3836bd5ccd8e63320a51509384ed4c347c85ca44e8e&",
-      "https://cdn.discordapp.com/attachments/1199773381873127499/1498702442236477523/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=988183ac88647eec14328cdf77f94b0147c125740a46741591cfa3aa10484a3b&"
-     ]
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi tanpa status",
    "tpKe": null,
    "klaimTeks": null,
    "klaimWaktu": null,
@@ -29422,17 +29236,26 @@
    "kutipan": "Gua baru open short untuk $HYPE and $BTC",
    "ke": 2,
    "dari": 4,
+   "kartuGerak": 1.13,
+   "kartuStatus": null,
    "pair": "HYPEUSDT",
    "bursa": "futures",
    "masuk": 40.119,
-   "imbal": -9.75,
+   "imbal": 1.13,
+   "imbal7h": -9.75,
+   "imbalTutup": -9.75,
+   "imbalSampai": null,
+   "imbalDasar": "horizon",
+   "hariDinilaiKlaim": 7.2,
    "terbaik": 3.52,
    "terburuk": -10.23,
    "hariDinilai": 7.0,
-   "hasil": "rugi",
-   "hasilAkhir": "rugi",
-   "sumberHasil": "harga",
-   "imbalSumber": "harga"
+   "hasil": "untung",
+   "hasilAkhir": "untung",
+   "sumberHasil": "analis",
+   "statusSumber": "analis",
+   "imbalHarga": 3.52,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "BTC",
@@ -29685,7 +29508,7 @@
    "aset": "MERL",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 0.0382,
    "target": null,
    "stop": null,
    "status": "TP",
@@ -29711,7 +29534,7 @@
      }
     }
    ],
-   "dasarTP": "balasan menunjukkan untung",
+   "dasarTP": "kartu posisi holding",
    "tpKe": null,
    "klaimTeks": "Jangan cape profit mulu ya <@&1246803191505358928>",
    "klaimWaktu": "2026-04-21T04:06:41.152000+00:00",
@@ -29720,10 +29543,12 @@
    "kutipan": "SHORT $MERL",
    "ke": 1,
    "dari": 1,
+   "kartuGerak": 3.53,
+   "kartuStatus": "holding",
    "pair": "MERLUSDT",
    "bursa": "futures",
    "masuk": 0.03811,
-   "imbal": 4.38,
+   "imbal": 3.53,
    "imbal7h": -2.1,
    "imbalTutup": 2.26,
    "imbalSampai": "2026-04-21T04:06:41.152000+00:00",
@@ -29736,7 +29561,8 @@
    "hasilAkhir": "untung",
    "sumberHasil": "analis",
    "statusSumber": "analis",
-   "imbalSumber": "harga"
+   "imbalHarga": 4.38,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "PEPE",
@@ -29902,15 +29728,6 @@
      "gambar": [
       "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6a9ed4cf&is=6a9d834f&hm=9d3356a0872d59c0835ceb6828bceb8ff41f6a54334746bcddc7262ed4fcb8e2&",
       "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6a9ed4cf&is=6a9d834f&hm=3d5e07e959cc5ccf72159d40076b900f71c85261521bf4607126ffac4b6cc1c5&"
-     ]
-    },
-    {
-     "waktu": "2026-04-28T15:14:23.716000+00:00",
-     "teks": "Masih sama viewnya buat $ETH and $SOL <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1498703939359739954",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6d996a182a3d72af46658c1b7102eb8ee986f3026fce49febcef90118bc3add5&",
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6354d6cd1a2d8a30fba3531cdc5f05651267cc8816979b30d372d89e8f3f9b33&"
      ]
     },
     {
@@ -30153,11 +29970,11 @@
    "aset": "ETHFI",
    "penulis": "Lynx",
    "arah": "short",
-   "entry": null,
+   "entry": 0.4645,
    "target": null,
    "stop": null,
-   "status": "Open",
-   "klaim": null,
+   "status": "TP",
+   "klaim": "diaku TP kena",
    "kabar": [
     {
      "waktu": "2026-04-16T10:33:35.026000+00:00",
@@ -30858,23 +30675,9 @@
      "teks": "Semoga tadi kalian SL+",
      "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
      "gambar": []
-    },
-    {
-     "waktu": "2026-04-16T10:33:35.026000+00:00",
-     "teks": "Gas? <@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494284616444543137",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1456034054737756270/1494284616042024990/IMG_0795.jpg?ex=6aaf0dbe&is=6aadbc3e&hm=5af65d504968e7720888bd0cdf680494bf66e8cfe9ea94039ffe24228ab82a55&"
-     ]
-    },
-    {
-     "waktu": "2026-04-16T19:54:13.331000+00:00",
-     "teks": "Semoga tadi kalian SL+",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
-     "gambar": []
     }
    ],
-   "dasarTP": null,
+   "dasarTP": "kartu posisi holding",
    "tpKe": null,
    "klaimTeks": null,
    "klaimWaktu": null,
@@ -30883,17 +30686,26 @@
    "kutipan": "**SHORT $ETHFI**",
    "ke": 1,
    "dari": 1,
+   "kartuGerak": 1.7,
+   "kartuStatus": "holding",
    "pair": "ETHFIUSDT",
    "bursa": "spot",
    "masuk": 0.46,
-   "imbal": 0.22,
+   "imbal": 1.7,
+   "imbal7h": 0.22,
+   "imbalTutup": 0.22,
+   "imbalSampai": null,
+   "imbalDasar": "horizon",
+   "hariDinilaiKlaim": 7.2,
    "terbaik": 3.48,
    "terburuk": -16.74,
    "hariDinilai": 7.0,
    "hasil": "untung",
    "hasilAkhir": "untung",
-   "sumberHasil": "harga",
-   "imbalSumber": "harga"
+   "sumberHasil": "analis",
+   "statusSumber": "analis",
+   "imbalHarga": 3.48,
+   "imbalSumber": "kartu"
   },
   {
    "aset": "HUSDT",
@@ -31198,20 +31010,6 @@
      "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
      "gambar": [
       "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6a9f1489&is=6a9dc309&hm=dbf282d19a11e4e4573ea49f96962030f178b343a2eead576ff9793b42e09df5&"
-     ]
-    },
-    {
-     "waktu": "2026-04-17T13:40:09.611000+00:00",
-     "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-     "gambar": []
-    },
-    {
-     "waktu": "2026-04-20T07:46:17.495000+00:00",
-     "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
      ]
     },
     {
@@ -31596,20 +31394,6 @@
      "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
      "gambar": [
       "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6a9f1489&is=6a9dc309&hm=dbf282d19a11e4e4573ea49f96962030f178b343a2eead576ff9793b42e09df5&"
-     ]
-    },
-    {
-     "waktu": "2026-04-17T13:40:09.611000+00:00",
-     "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-     "gambar": []
-    },
-    {
-     "waktu": "2026-04-20T07:46:17.495000+00:00",
-     "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-     "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-     "gambar": [
-      "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
      ]
     },
     {
@@ -32295,12 +32079,6 @@
      "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
      "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490761533121105981",
      "gambar": []
-    },
-    {
-     "waktu": "2026-04-06T17:14:06.506000+00:00",
-     "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490761533121105981",
-     "gambar": []
     }
    ],
    "dasarTP": null,
@@ -32371,12 +32149,6 @@
    "status": "SL",
    "klaim": null,
    "kabar": [
-    {
-     "waktu": "2026-04-06T09:43:44.991000+00:00",
-     "teks": "Sl guys sorry",
-     "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490648196672786453",
-     "gambar": []
-    },
     {
      "waktu": "2026-04-06T09:43:44.991000+00:00",
      "teks": "Sl guys sorry",
@@ -36219,11 +35991,8 @@
        "sumber": "https://discord.com/channels/1199773381097181317/1317766865749020802/1545436614203932755",
        "kanal": "Neil calls",
        "tautan": [],
-       "klaim": "diaku BE",
-       "status": "BE",
-       "klaimSumber": "https://discord.com/channels/1199773381097181317/1317766865749020802/1547926370858958869",
-       "klaimWaktu": "2026-09-11T11:06:45.894000+00:00",
-       "klaimTeks": "<@&1246803191505358928> Still long INIT - have not moved stops BE yet. Another chance at an entry here for anyone who missed Still expecting higher, send it up"
+       "klaim": null,
+       "status": "Open"
       },
       {
        "penulis": "Trader Neil’s Bot",
@@ -39265,11 +39034,11 @@
    "nPutus": 100,
    "nCall": 164,
    "runtun": 2,
-   "nAkhir": 121,
-   "wrAkhir": 78.5,
+   "nAkhir": 122,
+   "wrAkhir": 78.7,
    "nHarga": 159,
    "wrHarga": 71.1,
-   "imbalRata": 4.72,
+   "imbalRata": 4.74,
    "imbalDariKartu": 0
   },
   {
@@ -41571,14 +41340,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
          ]
-        },
-        {
-         "waktu": "2026-07-06T21:10:03.556000+00:00",
-         "teks": "🆑",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1523798207862411535",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
-         ]
         }
        ]
       },
@@ -42128,14 +41889,6 @@
           "waktu": null,
           "gerak": -3.83
          }
-        },
-        {
-         "waktu": "2026-07-06T21:10:03.556000+00:00",
-         "teks": "🆑",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1523798207862411535",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
-         ]
         }
        ]
       },
@@ -42641,14 +42394,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
          ]
-        },
-        {
-         "waktu": "2026-07-06T21:10:03.556000+00:00",
-         "teks": "🆑",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1523798207862411535",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1199773381873127499/1523798207476269086/IMG_9145.jpg?ex=6aafa2eb&is=6aae516b&hm=2fb5d48ba435e7a99212d9ad7d6bdcfed361f7adec87e6fe79eae64b78a4789d&"
-         ]
         }
        ]
       },
@@ -43064,20 +42809,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
          ]
-        },
-        {
-         "waktu": "2026-07-08T15:10:06.956000+00:00",
-         "teks": "I hope u guys watched the live recording, much alpha disitu and trade plan",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524432400887845118",
-         "gambar": []
-        },
-        {
-         "waktu": "2026-07-09T06:06:07.768000+00:00",
-         "teks": "**Brief Update:\n\n<@&1246803191505358928> \n**Beberapa support di Naked Chart and Vwaps cukup strong dan dapet mommentum mantul, plan gua masih sama biar ga spt k",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1524657890076528720",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1524657889753436264/image.png?ex=6aaf77cf&is=6aae264f&hm=bdbe349d1984955a2630a17248e9b94eaf5eeae2a54da31fd9599b598b534f8c&"
-         ]
         }
        ]
       },
@@ -43384,20 +43115,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
          ]
-        },
-        {
-         "waktu": "2026-04-17T13:40:09.611000+00:00",
-         "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-         "gambar": []
-        },
-        {
-         "waktu": "2026-04-20T07:46:17.495000+00:00",
-         "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
-         ]
         }
        ]
       },
@@ -43532,15 +43249,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6a9ed4cf&is=6a9d834f&hm=9d3356a0872d59c0835ceb6828bceb8ff41f6a54334746bcddc7262ed4fcb8e2&",
           "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6a9ed4cf&is=6a9d834f&hm=3d5e07e959cc5ccf72159d40076b900f71c85261521bf4607126ffac4b6cc1c5&"
-         ]
-        },
-        {
-         "waktu": "2026-04-28T15:14:23.716000+00:00",
-         "teks": "Masih sama viewnya buat $ETH and $SOL <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1498703939359739954",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1498703937073840218/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6d996a182a3d72af46658c1b7102eb8ee986f3026fce49febcef90118bc3add5&",
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1498703938898235662/image.png?ex=6aaf4f8f&is=6aadfe0f&hm=6354d6cd1a2d8a30fba3531cdc5f05651267cc8816979b30d372d89e8f3f9b33&"
          ]
         },
         {
@@ -44101,20 +43809,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
          ]
-        },
-        {
-         "waktu": "2026-04-17T13:40:09.611000+00:00",
-         "teks": "Officially ended drama2 S.Hormuz ini. SP udah ATH and the rest masi sesuai outlook kemarin.\n\n<@&1246803191505358928> \nhttps://x.com/Kalshi/status/20451236368566",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1494693957802922034",
-         "gambar": []
-        },
-        {
-         "waktu": "2026-04-20T07:46:17.495000+00:00",
-         "teks": "$ETH lebih mirip BTC tapi cukup enak buat mulai buka short di harga2 sekarang aim ke 2000.",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1495692067450388643",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1495692067270168699/image.png?ex=6aaf8f49&is=6aae3dc9&hm=59cd5f7e042ad631295ae8714dd59afbd189095b5baf8d2cdcbd43a0ad0a4fe4&"
-         ]
         }
        ]
       },
@@ -44631,15 +44325,6 @@
           "waktu": null,
           "gerak": 1.13
          }
-        },
-        {
-         "waktu": "2026-04-28T15:08:26.891000+00:00",
-         "teks": "BTC gua sempet DCA and kalo $HYPE bener2 baru masuk <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1498702442727215114",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1199773381873127499/1498702441447952486/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=e4a2993ed8eb1adc78a6f3836bd5ccd8e63320a51509384ed4c347c85ca44e8e&",
-          "https://cdn.discordapp.com/attachments/1199773381873127499/1498702442236477523/image.png?ex=6aaf4e2a&is=6aadfcaa&hm=988183ac88647eec14328cdf77f94b0147c125740a46741591cfa3aa10484a3b&"
-         ]
         }
        ]
       },
@@ -45372,12 +45057,6 @@
          "teks": "Masih msk pelan” incase ada pump",
          "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
          "gambar": []
-        },
-        {
-         "waktu": "2026-06-29T14:25:50.902000+00:00",
-         "teks": "Masih msk pelan” incase ada pump",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127499/1521159769799393362",
-         "gambar": []
         }
        ],
        "status": "Open"
@@ -45626,14 +45305,6 @@
          "gambar": [
           "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
          ]
-        },
-        {
-         "waktu": "2026-07-28T12:26:52.254000+00:00",
-         "teks": "Target price yang gua punya untuk $NVDA atleast gua aiming for 182-172 range of price (Value Area Low). Kalo dikasih lanjut SL+ di 172 <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1492020987540148284/1531639076241936535",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1492020987540148284/1531639075851997184/image.png?ex=6aaf284c&is=6aadd6cc&hm=13eee08b15eb13c38fc198ad427ba8eacca775adcae790ced6a894891612e7ee&"
-         ]
         }
        ]
       }
@@ -45683,16 +45354,16 @@
      ]
     }
    ],
-   "wr": 100.0,
-   "nPutus": 16,
+   "wr": 94.4,
+   "nPutus": 18,
    "nCall": 49,
-   "runtun": 16,
+   "runtun": 2,
    "nAkhir": 41,
    "wrAkhir": 56.1,
    "nHarga": 48,
    "wrHarga": 52.1,
-   "imbalRata": 1.06,
-   "imbalDariKartu": 0
+   "imbalRata": 1.19,
+   "imbalDariKartu": 4
   },
   {
    "nama": "Lynx",
@@ -47619,18 +47290,6 @@
          "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
          "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
          "gambar": []
-        },
-        {
-         "waktu": "2026-05-07T15:26:24.314000+00:00",
-         "teks": "sesuai ya <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501968452557213786",
-         "gambar": []
-        },
-        {
-         "waktu": "2026-05-21T05:44:11.858000+00:00",
-         "teks": "TOP BTC berhasil gw prediksi juga <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895365335552031",
-         "gambar": []
         }
        ]
       },
@@ -48022,12 +47681,6 @@
          "teks": "Sesuai ya turun <@&1246803191505358928>",
          "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1505907127179415572",
          "gambar": []
-        },
-        {
-         "waktu": "2026-05-18T12:17:17.521000+00:00",
-         "teks": "Sesuai ya turun <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1505907127179415572",
-         "gambar": []
         }
        ],
        "klaimSumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1506895117980794960",
@@ -48098,12 +47751,6 @@
        "klaim": null,
        "status": "Open",
        "kabar": [
-        {
-         "waktu": "2026-04-06T09:43:44.991000+00:00",
-         "teks": "Sl guys sorry",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490648196672786453",
-         "gambar": []
-        },
         {
          "waktu": "2026-04-06T09:43:44.991000+00:00",
          "teks": "Sl guys sorry",
@@ -49822,14 +49469,6 @@
           "waktu": null,
           "gerak": null
          }
-        },
-        {
-         "waktu": "2026-06-15T03:12:25.658000+00:00",
-         "teks": "Congrats <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1515916867804336218",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1199773381873127496/1515916867477311509/IMG_3027.png?ex=6aaf4f19&is=6aadfd99&hm=c14f42450614712d5218fa0ea5717f8e84019abe80afb8706755be8304bd3238&"
-         ]
         }
        ]
       }
@@ -50022,12 +49661,6 @@
        "tautan": [],
        "status": "Open",
        "kabar": [
-        {
-         "waktu": "2026-04-06T17:14:06.506000+00:00",
-         "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1490761533121105981",
-         "gambar": []
-        },
         {
          "waktu": "2026-04-06T17:14:06.506000+00:00",
          "teks": "sempat up 3 percent, close at BEP supaya aman \n\n<@&1246803191505358928>",
@@ -50900,20 +50533,6 @@
          "teks": "Semoga tadi kalian SL+",
          "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
          "gambar": []
-        },
-        {
-         "waktu": "2026-04-16T10:33:35.026000+00:00",
-         "teks": "Gas? <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494284616444543137",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1456034054737756270/1494284616042024990/IMG_0795.jpg?ex=6aaf0dbe&is=6aadbc3e&hm=5af65d504968e7720888bd0cdf680494bf66e8cfe9ea94039ffe24228ab82a55&"
-         ]
-        },
-        {
-         "waktu": "2026-04-16T19:54:13.331000+00:00",
-         "teks": "Semoga tadi kalian SL+",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1494425705721761813",
-         "gambar": []
         }
        ]
       }
@@ -51203,14 +50822,6 @@
          "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
          "gambar": [
           "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6a9eeccc&is=6a9d9b4c&hm=645d696b8108f533c8804988fd0e75eff5fe95ae9e1e649c4d91fd7fdac7778a&"
-         ]
-        },
-        {
-         "waktu": "2026-05-06T04:56:44.234000+00:00",
-         "teks": "**SHORT $ENA**\n\nReason: rejecting on supply zone\n\nTarget 8% dengan sl di -2,9%\n\nRR 1:3\n\nDYOR and NFA!\n\n<@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1501447603550949417",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1456034054737756270/1501447603358007397/image.png?ex=6aaf678c&is=6aae160c&hm=98584752cbd8a8d137bf5e3f1ed8a819c914c73ca4adea3dc7c7f23914fa0b2b&"
          ]
         },
         {
@@ -51833,14 +51444,6 @@
           "waktu": "2026-05-29 07:44:38",
           "gerak": 2.59
          }
-        },
-        {
-         "waktu": "2026-05-29T05:49:27.509000+00:00",
-         "teks": "Tired of winning <@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1509795792196603985",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1456034054737756270/1509795791743615007/IMG_2321.jpg?ex=6aaf73e7&is=6aae2267&hm=4f1c965e0f2800594d1e9df18a00238c02048e13a0fd0e797a8ed157f20d6c4d&"
-         ]
         }
        ]
       }
@@ -52469,14 +52072,6 @@
           "waktu": "2026-07-20 13:21",
           "gerak": 5.63
          }
-        },
-        {
-         "waktu": "2026-07-20T06:21:56.887000+00:00",
-         "teks": "<@&1246803191505358928>",
-         "sumber": "https://discord.com/channels/1199773381097181317/1456034054737756270/1528648137491746826",
-         "gambar": [
-          "https://cdn.discordapp.com/attachments/1456034054737756270/1528648136954740846/IMG_4524.png?ex=6aaf7b84&is=6aae2a04&hm=5ef01ba91f21010a9cfda7075cd0f4f744ce4042dcc1e8ef01937282f709265f&"
-         ]
         }
        ]
       }
@@ -52616,12 +52211,6 @@
          "teks": "Pump tuh 75 persen",
          "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
          "gambar": []
-        },
-        {
-         "waktu": "2026-09-05T18:47:31.099000+00:00",
-         "teks": "Pump tuh 75 persen",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1545867996059144242",
-         "gambar": []
         }
        ],
        "status": "Open"
@@ -52647,12 +52236,6 @@
        "klaim": null,
        "status": "Open",
        "kabar": [
-        {
-         "waktu": "2026-09-07T04:23:19.380000+00:00",
-         "teks": "Sempat pump",
-         "sumber": "https://discord.com/channels/1199773381097181317/1199773381873127496/1546375289917931520",
-         "gambar": []
-        },
         {
          "waktu": "2026-09-07T04:23:19.380000+00:00",
          "teks": "Sempat pump",
@@ -52685,16 +52268,16 @@
      ]
     }
    ],
-   "wr": 88.2,
-   "nPutus": 17,
+   "wr": 90.5,
+   "nPutus": 21,
    "nCall": 47,
-   "runtun": 1,
-   "nAkhir": 41,
-   "wrAkhir": 65.9,
+   "runtun": 2,
+   "nAkhir": 42,
+   "wrAkhir": 69.0,
    "nHarga": 44,
-   "wrHarga": 65.9,
-   "imbalRata": -2.73,
-   "imbalDariKartu": 0
+   "wrHarga": 68.2,
+   "imbalRata": 0.68,
+   "imbalDariKartu": 6
   },
   {
    "nama": "Anthony",

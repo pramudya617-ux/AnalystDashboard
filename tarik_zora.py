@@ -34,7 +34,11 @@ import urllib.request
 import dns_doh  # noqa: F401  (efeknya lewat impor)
 
 HERE = pathlib.Path(__file__).resolve().parent
-KELUARAN = HERE / "data" / "zora.json"
+# DATA_DIR menunjuk volume permanen Railway. Tanpa itu (mis. di laptop), hasilnya
+# ditulis ke folder data/ biasa.
+_vol = os.environ.get("DATA_DIR")
+KELUARAN = (pathlib.Path(_vol) if _vol and pathlib.Path(_vol).is_dir()
+            else HERE / "data") / "zora.json"
 
 ZORA_USER = "1548790432006152202"
 ZORA_CHANNEL = "1548792499810598932"

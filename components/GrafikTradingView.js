@@ -1,76 +1,65 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-/* Chart TradingView penuh - konfigurasi disamakan dengan dashboard lama.
+/* Chart TradingView penuh.
+ *
+ * MEMAKAI WIDGET EMBED, BUKAN tv.js.
+ *
+ * Versi pertama memakai `new TradingView.widget()` dari s3.tradingview.com/tv.js
+ * seperti dashboard lama, dan hasilnya halaman 403 dari CloudFront: konstruktor
+ * itu memuat chart-nya dari www.tradingview.com, yang diblokir di jaringan sini.
+ * Widget embed memuat isinya dari www.tradingview-widget.com - host yang sama
+ * dengan pratinjau mini yang selama ini jalan normal.
  *
  * hide_side_toolbar sengaja false: analis menulis entry sebagai "CMP" lalu
- * MENGGAMBAR target dan stop di chart, jadi alat gambar di sisi kiri itu justru
- * bagian yang berguna, bukan hiasan.
- *
- * Widget dibangun ulang tiap ganti simbol. Embed gratis TradingView tidak
- * menyediakan cara mengganti simbol pada widget yang sudah jadi, jadi membangun
- * ulang adalah satu-satunya jalan yang jujur.
+ * MENGGAMBAR target dan stop di chart, jadi alat gambar di sisi kiri itu bagian
+ * yang berguna, bukan hiasan.
  */
-const TV_SRC = "https://s3.tradingview.com/tv.js";
-let muatTv = null;
-
-function siapkanTv() {
-  if (typeof window === "undefined") return Promise.reject(new Error("tanpa window"));
-  if (window.TradingView) return Promise.resolve();
-  if (!muatTv) {
-    muatTv = new Promise((selesai, gagal) => {
-      const s = document.createElement("script");
-      s.src = TV_SRC;
-      s.async = true;
-      s.onload = () => selesai();
-      s.onerror = () => { muatTv = null; gagal(new Error("skrip tidak termuat")); };
-      document.head.appendChild(s);
-    });
-  }
-  return muatTv;
-}
-
 export default function GrafikTradingView({
   pair, pasar, aset, arah, waktu, tinggi = 420, tanpaKepala = false,
 }) {
   const wadah = useRef(null);
-  const [galat, setGalat] = useState("");
   const simbol = pair ? `BINANCE:${pair}${pasar === "futures" ? ".P" : ""}` : null;
 
   useEffect(() => {
-    if (!simbol || !wadah.current) return;
-    let batal = false;
-    setGalat("");
+    const el = wadah.current;
+    if (!el || !simbol) return;
+    el.innerHTML = "";
 
-    const id = `tvchart-${Math.random().toString(36).slice(2)}`;
-    wadah.current.innerHTML = `<div id="${id}" style="height:${tinggi}px"></div>`;
+    const kotak = document.createElement("div");
+    kotak.className = "tradingview-widget-container";
+    const isi = document.createElement("div");
+    isi.className = "tradingview-widget-container__widget";
+    kotak.appendChild(isi);
 
-    siapkanTv()
-      .then(() => {
-        if (batal || !document.getElementById(id)) return;
-        /* eslint-disable no-undef */
-        new window.TradingView.widget({
-          container_id: id,
-          autosize: true,
-          symbol: simbol,
-          interval: "240",              // 4 jam, sama seperti dashboard lama
-          timezone: "Asia/Jakarta",
-          style: "1",
-          locale: "id",
-          theme: "dark",
-          backgroundColor: "rgba(15,17,21,1)",
-          gridColor: "rgba(255,255,255,0.06)",
-          hide_side_toolbar: false,     // alat gambar dipakai untuk menandai TP/SL
-          allow_symbol_change: false,
-          withdateranges: true,
-        });
-      })
-      .catch(() => {
-        if (!batal) setGalat("Widget TradingView tidak bisa dimuat. Panel ini butuh koneksi ke tradingview.com; sisa dashboard tetap jalan.");
-      });
+    const s = document.createElement("script");
+    s.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    s.async = true;
+    /* Tinggi diberikan lewat konfigurasi, BUKAN lewat CSS wadahnya: skrip widget
+       menulis ulang gaya wadahnya sendiri, dan tinggi yang diset dari luar
+       berakhir tertimpa jadi ~150px. */
+    s.innerHTML = JSON.stringify({
+      autosize: false,
+      width: "100%",
+      height: tinggi,
+      symbol: simbol,
+      interval: "240",            // 4 jam, sama seperti dashboard lama
+      timezone: "Asia/Jakarta",
+      theme: "dark",
+      style: "1",
+      locale: "id",
+      hide_side_toolbar: false,   // alat gambar dipakai untuk menandai TP/SL
+      allow_symbol_change: false,
+      withdateranges: true,
+      save_image: false,
+      backgroundColor: "rgba(15,17,21,1)",
+      gridColor: "rgba(255,255,255,0.06)",
+    });
+    kotak.appendChild(s);
+    el.appendChild(kotak);
 
-    return () => { batal = true; };
+    return () => { el.innerHTML = ""; };
   }, [simbol, tinggi]);
 
   if (!pair) {
@@ -85,8 +74,6 @@ export default function GrafikTradingView({
 
   return (
     <div style={{ padding: "0 10px 10px" }}>
-      {/* Kepala dilewati kalau panel pemanggilnya sudah punya judul sendiri,
-          supaya aset dan waktunya tidak tertulis dua kali. */}
       {!tanpaKepala && (
         <div style={{ display: "flex", alignItems: "baseline", gap: 8, padding: "0 4px 8px" }}>
           <b style={{ fontSize: 13.5 }}>
@@ -99,7 +86,7 @@ export default function GrafikTradingView({
           </span>
         </div>
       )}
-      {galat ? <div className="kosong">{galat}</div> : <div ref={wadah} />}
+      <div ref={wadah} />
     </div>
   );
 }

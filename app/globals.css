@@ -335,7 +335,10 @@ table.calls tr:hover td { background: rgba(255, 255, 255, 0.025); }
 
 /* ---------------------------------------------------------------- corong */
 .corong { padding: 6px 16px 16px; }
-.corong svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* Tanda ">" WAJIB: tanpa itu aturan ini ikut mengenai SETIAP svg di dalam
+   .corong - termasuk panah 12px di keterangan, yang lalu melar memenuhi lebar
+   panel. Hanya kanvas corongnya sendiri yang boleh selebar panel. */
+.corong > svg { display: block; width: 100%; height: auto; overflow: visible; }
 
 /* Teks corong diberi garis luar gelap lewat paint-order. Tanpa itu angka putih
    dan labelnya tenggelam di atas pita biru - persis masalah yang membuat versi
@@ -365,6 +368,20 @@ table.calls tr:hover td { background: rgba(255, 255, 255, 0.025); }
 }
 .corong .cbatas { stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; }
 .corong-ket { font-size: 11px; color: var(--ink-3); line-height: 1.6; margin-top: 10px; }
+.ket-buka {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-3);
+  font-size: 11px;
+  cursor: pointer;
+  text-align: left;
+}
+.ket-buka:hover { color: var(--ink-2); }
+.ket-buka svg { width: 12px; height: 12px; flex: none; }
 
 .putar {
   width: 27px; height: 27px;
@@ -545,6 +562,9 @@ table.calls tr:hover td { background: rgba(255, 255, 255, 0.025); }
   /* Teks corong diperbesar relatif terhadap viewBox: SVG ikut mengecil di layar
      sempit, jadi tanpa ini angkanya turun ke sekitar 11px dan sulit dibaca. */
   .corong { padding: 4px 10px 12px; }
+  /* Angka dan label diperbesar DAN diberi jarak: di 390px teks SVG ikut mengecil
+     mengikuti viewBox, dan tanpa jarak tambahan ketiganya saling menempel. */
+  .corong > svg { min-height: 150px; }
   .corong .cn { font-size: 46px; stroke-width: 7px; }
   .corong .cg { font-size: 32px; stroke-width: 7px; }
   .corong .cs { font-size: 27px; stroke-width: 6px; }

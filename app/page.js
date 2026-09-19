@@ -1,4 +1,5 @@
 import { muatDashboard, ZORA } from "@/lib/data";
+import { statusPenarikan } from "@/lib/status";
 import Dashboard from "@/components/Dashboard";
 
 export const dynamic = "force-dynamic"; // koreksi tersimpan di berkas, jangan di-cache
@@ -7,6 +8,9 @@ export default async function Halaman({ searchParams }) {
   const sp = await searchParams;
   const mode = sp?.mode === "september" ? "september" : "6bulan";
   const data = muatDashboard(mode);
+  /* Status penjadwal ikut dikirim supaya baris kabar di kepala halaman
+     memberitakan keadaan sebenarnya, bukan tebakan dari cap waktu berkas. */
+  data.jadwal = statusPenarikan();
 
   /* Zora belum punya data tarikan; tampil sebagai kartu menunggu supaya
      keberadaannya terlihat tanpa memalsukan angka apa pun. */

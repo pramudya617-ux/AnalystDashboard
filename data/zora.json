@@ -3,7 +3,7 @@
   "avatar": "https://cdn.discordapp.com/avatars/1548790432006152202/749636565fa5e57dc508753b67ecba9f.png?size=128",
   "id": "1548790432006152202",
   "channelId": "1548792499810598932",
-  "ditarik": "2026-09-19T05:53:24Z",
+  "ditarik": "2026-09-19T10:33:05Z",
   "jumlahPesan": 15,
   "baris": [
     {
@@ -48,7 +48,7 @@
       "pair": "METUSDT",
       "bursa": "spot",
       "hasilAkhir": "belum tersentuh",
-      "imbal": 27.0,
+      "imbal": 27.05,
       "tpDiabaikan": 0,
       "sumberHasil": "harga",
       "imbalSumber": "harga",
@@ -144,11 +144,11 @@
         "2": 0.033,
         "3": 0.035
       },
-      "tpKe": null,
+      "tpKe": 2,
       "pair": "ARIAUSDT",
       "bursa": "futures",
-      "hasilAkhir": "belum tersentuh",
-      "imbal": -0.85,
+      "hasilAkhir": "target tersentuh",
+      "imbal": 7.81,
       "tpDiabaikan": 0,
       "sumberHasil": "harga",
       "imbalSumber": "harga",

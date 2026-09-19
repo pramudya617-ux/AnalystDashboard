@@ -1,0 +1,13 @@
+{
+ "1549054348741312523": {"klaim":"diaku TP kena","tpKe":"TP1","klaimWaktu":null,"catatan":"TP1 Kena","aset":"ZEC","waktu":"2026-09-14T13:48","pada":"2026-09-15T11:07:40Z"},
+ "1547926370858958869": {"klaim":"diaku TP kena","tpKe":"TP1","klaimWaktu":null,"catatan":"TP 1 Kena","aset":"INIT","waktu":"2026-09-11T11:06","pada":"2026-09-15T11:07:40Z"},
+ "1547631488953225278": {"klaim":"diaku TP kena","tpKe":"TP2","klaimWaktu":null,"catatan":"TP 2 Kena","aset":"INIT","waktu":"2026-09-10T15:35","pada":"2026-09-15T11:07:40Z"},
+ "1546887530652369019": {"klaim":"diaku TP kena","tpKe":"TP1","klaimWaktu":null,"catatan":"Dia sebut TP, dan Ubah stops ke BE","aset":"ETHFI","waktu":"2026-09-08T14:18","pada":"2026-09-15T11:07:40Z"},
+ "1546566787330613419": {"klaim":"diaku BE","tpKe":null,"klaimWaktu":null,"catatan":"Di calls memang closed BE","aset":"ZEC","waktu":"2026-09-07T17:04","pada":"2026-09-15T11:07:40Z"},
+ "1545849023460544573": {"klaim":"diaku TP kena","tpKe":"TP1","klaimWaktu":null,"catatan":"CLosed in Profit","aset":"DOGE","waktu":"2026-09-05T17:32","pada":"2026-09-15T11:07:40Z"},
+ "1545436614203932755": {"klaim":"diaku TP kena","tpKe":"TP 1","klaimWaktu":null,"catatan":"Ada 2 posisi init","aset":"INIT","waktu":"2026-09-04T14:13","pada":"2026-09-15T11:07:40Z"},
+ "1545411589736501319": {"klaim":"diaku TP kena","tpKe":"TP2","klaimWaktu":null,"catatan":"Di discord pakai youre up huge","aset":"ZEC","waktu":"2026-09-04T12:33","pada":"2026-09-15T11:07:40Z"},
+ "1544777858143228046": {"klaim":"diaku kena stop","tpKe":"SL","klaimWaktu":null,"catatan":"Kena SL","aset":"VELVET","waktu":"2026-09-02T18:35","pada":"2026-09-15T11:07:40Z"},
+ "1544487612113494139": {"klaim":"diaku TP kena","tpKe":"Full TP","klaimWaktu":null,"catatan":"Terlalu banyak calls ini","aset":"INIT","waktu":"2026-09-01T23:22","pada":"2026-09-15T11:07:40Z"},
+ "1544322374336389243": {"klaim":"diaku BE","tpKe":null,"klaimWaktu":null,"catatan":"Close After Fill DCA","aset":"SYRUP","waktu":"2026-09-01T12:25","pada":"2026-09-15T11:07:40Z"}
+}

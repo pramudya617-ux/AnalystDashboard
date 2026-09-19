@@ -1,1 +1,65 @@
-{}
+{
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1545849023460544573": {
+    "hasil": "target tersentuh",
+    "alasan": "CLosed in Profit",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP1"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1545436614203932755": {
+    "hasil": "target tersentuh",
+    "alasan": "Ada 2 posisi init",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP1"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1545411589736501319": {
+    "hasil": "target tersentuh",
+    "alasan": "Di discord pakai youre up huge",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP2"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1544777858143228046": {
+    "hasil": "invalidasi tersentuh",
+    "alasan": "Kena SL",
+    "waktu": "2026-09-15T11:07:40Z"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1544487612113494139": {
+    "hasil": "target tersentuh",
+    "alasan": "Terlalu banyak calls ini",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "Full TP"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1544322374336389243": {
+    "hasil": "impas",
+    "alasan": "Close After Fill DCA",
+    "waktu": "2026-09-15T11:07:40Z"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1549054348741312523": {
+    "hasil": "target tersentuh",
+    "alasan": "TP1 Kena",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP1"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1547926370858958869": {
+    "hasil": "target tersentuh",
+    "alasan": "TP 1 Kena",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP1"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1547631488953225278": {
+    "hasil": "target tersentuh",
+    "alasan": "TP 2 Kena",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP2"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1546887530652369019": {
+    "hasil": "target tersentuh",
+    "alasan": "Dia sebut TP, dan Ubah stops ke BE",
+    "waktu": "2026-09-15T11:07:40Z",
+    "tpKe": "TP1"
+  },
+  "https://discord.com/channels/1199773381097181317/1317766865749020802/1546566787330613419": {
+    "hasil": "impas",
+    "alasan": "Di calls memang closed BE",
+    "waktu": "2026-09-15T11:07:40Z"
+  }
+}

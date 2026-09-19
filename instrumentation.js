@@ -6,6 +6,10 @@
  */
 export async function register() {
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
+
   const { mulaiPenjadwal } = await import("./lib/penjadwal");
-  mulaiPenjadwal();
+  mulaiPenjadwal();          // Zora: aturan tetap, murah, tiap 30 menit
+
+  const { mulaiPenarikAnalis } = await import("./lib/penarik_analis");
+  mulaiPenarikAnalis();      // analis lain: pakai LLM, jadi harian
 }
