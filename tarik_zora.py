@@ -163,6 +163,7 @@ ALIAS = {"SOLANA": "SOL", "BITCOIN": "BTC", "ETHEREUM": "ETH", "ETHER": "ETH",
          "RIPPLE": "XRP", "DOGECOIN": "DOGE", "PUMPFUN": "PUMP"}
 
 _simbol_cache = None
+_simbol_lengkap = False   # apakah daftar spot DAN futures sama-sama terambil
 
 
 def simbol_binance():
@@ -173,10 +174,17 @@ def simbol_binance():
 
     Mengembalikan None kalau KEDUA sumber gagal dihubungi. Itu dibedakan dari
     'tidak listed' dengan sengaja: gagal jaringan pernah membuat seluruh
-    panggilan dicap tidak ada di Binance, dan itu kesimpulan yang salah."""
-    global _simbol_cache
+    panggilan dicap tidak ada di Binance, dan itu kesimpulan yang salah.
+
+    SEPARUH juga bukan lengkap. Railway tidak bisa menghubungi fapi.binance.com
+    (Binance menolak IP pusat data), jadi hanya daftar spot yang terambil - dan
+    setiap aset futures-saja lalu dicap 'tidak diperdagangkan' dengan yakin.
+    Itu menghapus hasil AKE, BULLA, dan ARIA di produksi. Sekarang keadaan
+    'daftarnya tidak utuh' dicatat lewat _simbol_lengkap, dan pasangan()
+    menjawab '?' alih-alih menyimpulkan yang tidak dia ketahui."""
+    global _simbol_cache, _simbol_lengkap
     if _simbol_cache is None:
-        peta, berhasil = {}, False
+        peta, berhasil, gagal = {}, False, 0
         for url, jenis in ((f"{BINANCE}/exchangeInfo?permissions=SPOT", "spot"),
                            ("https://fapi.binance.com/fapi/v1/exchangeInfo", "futures")):
             try:
@@ -189,7 +197,9 @@ def simbol_binance():
                         peta[x["symbol"]] = jenis
                 berhasil = True
             except Exception as e:  # noqa: BLE001
+                gagal += 1
                 print(f"  [peringatan] daftar simbol {jenis} gagal: {type(e).__name__}")
+        _simbol_lengkap = gagal == 0
         _simbol_cache = peta if berhasil else None
     return _simbol_cache
 
@@ -211,7 +221,8 @@ def pasangan(aset):
     for kandidat in (a + "USDT", "1000" + a + "USDT", a + "USDC"):
         if kandidat in ada:
             return (kandidat, ada[kandidat])
-    return (None, None)
+    # Tidak ketemu. Itu hanya berarti 'tidak diperdagangkan' kalau daftarnya utuh.
+    return (None, None) if _simbol_lengkap else ("?", None)
 
 
 def klines(pair, pasar, mulai_ms, selesai_ms):
@@ -293,6 +304,42 @@ def nilai(call, waktu_ms):
 
 
 # ----------------------------------------------------------------------- utama
+def pertahankan_hasil_lama(baru):
+    """Jangan biarkan penarikan yang gagal menghapus hasil yang sudah benar.
+
+    Satu penarikan yang tidak bisa menghubungi Binance menghasilkan baris tanpa
+    harga: tanpa pasangan, tanpa level TP, tanpa imbal. Menulisnya apa adanya
+    membuat panggilan yang sudah kena TP 3 berubah jadi 'tak ada data' di layar,
+    dan itu persis yang terjadi di produksi. Jadi baris lama yang sudah punya
+    hasil dipertahankan, dan penarikan berikutnya yang sehat akan memperbaruinya
+    sendiri. Panggilan yang benar-benar baru tetap masuk seperti biasa."""
+    if not KELUARAN.exists():
+        return baru
+    try:
+        lama = {b.get("sumber"): b
+                for b in json.loads(KELUARAN.read_text(encoding="utf-8")).get("baris", [])
+                if b.get("sumber")}
+    except Exception as e:  # noqa: BLE001
+        print(f"  [peringatan] berkas lama tidak terbaca ({type(e).__name__}), dilewati")
+        return baru
+
+    def kosong(b):
+        return b.get("pair") in (None, "?")
+
+    hasil, dipertahankan = [], 0
+    for b in baru:
+        l = lama.get(b.get("sumber"))
+        if l and kosong(b) and not kosong(l):
+            hasil.append(l)
+            dipertahankan += 1
+        else:
+            hasil.append(b)
+    if dipertahankan:
+        print(f"  [jaga] {dipertahankan} baris mempertahankan hasil lama "
+              f"karena penarikan ini tidak mendapat harga")
+    return hasil
+
+
 def utama():
     token = os.environ.get("DISCORD_BOT_TOKEN", "")
     if not token:
@@ -326,6 +373,8 @@ def utama():
         print(f"  {c['aset']:8} {c['arah']:5} -> {h['hasil']}"
               f"{'' if h['tpKe'] is None else ' TP' + str(h['tpKe'])}"
               f" ({h['imbal']}%)")
+
+    baris = pertahankan_hasil_lama(baris)
 
     KELUARAN.parent.mkdir(parents=True, exist_ok=True)
     KELUARAN.write_text(json.dumps({
@@ -404,8 +453,37 @@ SL: 0,02060 (20%)"""
     assert ke_ms("2026-09-18T11:49:11.000000+00:00") == 1789732151000, ke_ms("2026-09-18T11:49:11")
     assert ke_ms("1970-01-01T00:00:00") == 0
 
+    # Daftar simbol yang cuma separuh terambil tidak boleh dipakai untuk
+    # menyimpulkan 'tidak diperdagangkan' - inilah yang menghapus hasil aset
+    # futures di produksi saat fapi.binance.com tidak bisa dihubungi.
+    global _simbol_lengkap
+    _simbol_cache.clear(); _simbol_cache["METUSDT"] = "spot"
+    _simbol_lengkap = False
+    assert pasangan("MET") == ("METUSDT", "spot"), pasangan("MET")
+    assert pasangan("ARIA") == ("?", None), pasangan("ARIA")
+    _simbol_lengkap = True
+    assert pasangan("ARIA") == (None, None), pasangan("ARIA")
+
+    # Penarikan tanpa harga tidak boleh menghapus hasil yang sudah ada.
+    import tempfile
+    global KELUARAN
+    simpan_keluaran = KELUARAN
+    with tempfile.TemporaryDirectory() as d:
+        KELUARAN = pathlib.Path(d) / "zora.json"
+        KELUARAN.write_text(json.dumps({"baris": [
+            {"sumber": "m1", "aset": "AKE", "pair": "AKEUSDT", "tpKe": 3, "imbal": 58.33},
+        ]}), encoding="utf-8")
+        hasil = pertahankan_hasil_lama([
+            {"sumber": "m1", "aset": "AKE", "pair": None, "tpKe": None, "imbal": None},
+            {"sumber": "m2", "aset": "BARU", "pair": None, "tpKe": None, "imbal": None},
+        ])
+        assert hasil[0]["tpKe"] == 3, hasil[0]          # hasil lama dipertahankan
+        assert hasil[1]["aset"] == "BARU", hasil[1]     # panggilan baru tetap masuk
+    KELUARAN = simpan_keluaran
+
     print("selftest ok: penguraian, angka koma, short, urutan SL-sebelum-TP, "
-          "penolakan target salah sisi, dan waktu UTC")
+          "penolakan target salah sisi, waktu UTC, daftar simbol separuh, "
+          "dan penjagaan hasil lama")
 
 
 if __name__ == "__main__":
