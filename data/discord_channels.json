@@ -1,0 +1,51 @@
+{
+ "_beda_dua_id": "PENTING — ada dua jenis ID dan keduanya berupa angka panjang. 'id' di dalam channels HARUS channel ID (klik kanan NAMA CHANNEL di daftar kiri). 'analis' HARUS user ID (klik kanan FOTO PROFIL orangnya). Kalau tertukar, hasilnya HTTP 404.",
+ "_izin": "Tiap channel butuh dua izin untuk bot DRC Recap Analyst: View Channel DAN Read Message History, keduanya dicentang HIJAU. Netral tidak cukup karena @everyone menolaknya. Gejala: HTTP 403 kalau View Channel kurang, '0 pesan' kalau Read Message History kurang.",
+ "_analis_global": "Empat user ID di bawah berlaku untuk SEMUA channel. Jadi di channel ramai seperti discussion, hanya pesan keempat orang ini yang terbaca; obrolan anggota lain diabaikan.",
+ "_biaya": "Tiap analis yang terdeteksi memicu DUA panggilan LLM per penarikan (ringkasan + ekstraksi panggilan). Empat analis = delapan panggilan. Pakai LLM gratis lewat LLM_BASE/LLM_MODEL/LLM_KEY kalau tidak mau menagih xAI. Tanpa kunci LLM sama sekali, pesan tetap terkumpul tanpa diringkas.",
+ "analis": [
+  "254607546566836225",
+  "1124743972473032804",
+  "1106664479242063953",
+  "496632963715432458"
+ ],
+ "_analis_siapa": "254607546566836225 Lynx · 1124743972473032804 Jaxx (dxdiag12_) · 1106664479242063953 Trader Neil's Bot [BOT] · 496632963715432458 Anthony (cheryll.)",
+ "channels": [
+  {
+   "nama": "Lynx calls",
+   "id": "1456034054737756270",
+   "_status": "SIAP"
+  },
+  {
+   "nama": "Jaxx calls",
+   "id": "1199773381873127499",
+   "_status": "PERLU IZIN — View Channel + Read Message History"
+  },
+  {
+   "nama": "Neil calls",
+   "id": "1317766865749020802",
+   "_status": "PERLU IZIN"
+  },
+  {
+   "nama": "Anthony calls",
+   "id": "1248219511019147315",
+   "_status": "PERLU IZIN"
+  },
+  {
+   "nama": "Diskusi umum",
+   "id": "1199773381873127496",
+   "_status": "SIAP — keempat analis disaring lewat daftar global di atas"
+  },
+  {
+   "nama": "Market Update",
+   "id": "1492020987540148284",
+   "_status": "SIAP — keempat analis disaring lewat daftar global di atas"
+  }
+ ],
+ "_channel_lain": "ID channel analis lain di server Anda, kalau mau menukar: cyrus-calls 1236006561919533208 · mr-calls 1270972231828373587 · tyler-calls 1402956876014026822 · yudha-calls 1416613126765285387 · oracle-calls 1404913845360656525 · soul-calls 1373962138804162560 · luxquant-calls 1420353643001151619",
+ "_ringkasan_dulu": "ID analis yang segmennya dibuka dengan RINGKASAN OBROLAN, bukan corong dan tabel panggilan. Untuk analis yang isinya lebih banyak diskusi daripada panggilan. Kosongkan daftarnya kalau semua ingin memakai tampilan tabel.",
+ "ringkasanDulu": [
+  "1124743972473032804",
+  "496632963715432458"
+ ]
+}

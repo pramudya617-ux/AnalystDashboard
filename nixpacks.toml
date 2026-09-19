@@ -1,0 +1,16 @@
+# Railway memakai Nixpacks, dan untuk proyek ini ia akan mengenali Node saja.
+# Padahal penarik Zora ditulis dengan Python, jadi python3 HARUS diminta secara
+# eksplisit - tanpa baris ini penjadwal akan gagal di server dengan
+# "spawn python ENOENT" sementara di laptop berjalan normal.
+#
+# Tidak ada requirements.txt: tarik_zora.py dan dns_doh.py hanya memakai pustaka
+# bawaan Python, jadi tidak ada yang perlu di-pip install.
+
+[phases.setup]
+nixPkgs = ["nodejs_22", "python311"]
+
+[phases.build]
+cmds = ["npm ci", "npm run build"]
+
+[start]
+cmd = "npm start"

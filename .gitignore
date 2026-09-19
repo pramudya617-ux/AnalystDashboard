@@ -1,0 +1,5 @@
+node_modules/
+.next/
+
+# berisi KOREKSI_SANDI - jangan pernah masuk repo
+.env.local
