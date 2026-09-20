@@ -37,18 +37,18 @@ DASHBOARD = os.environ.get("APP_URL", "https://drc.up.railway.app").rstrip("/")
 # --------------------------------------------------------------------- isi
 JUDUL = "Analyst Dashboard"
 
-ISI = f"""Win rate, riwayat panggilan, dan chart tiap call analis — semuanya dalam satu halaman.
+ISI = f"""Win rate, riwayat panggilan, dan chart tiap call analis dalam satu halaman.
 
 **Diperbarui otomatis**
-• Zora — tiap 30 menit
-• Neil, Lynx & analis lain — tiap hari
+• Zora: tiap 30 menit
+• Neil, Lynx & analis lain: tiap hari
 
 **Cara masuk**
 Klik tombol di bawah, lalu *Authorize* dengan akun Discord kamu. Tidak ada kata sandi baru yang perlu diingat.
 
 **Biar lancar**
-• **Desktop** — buka lewat browser yang sudah login Discord
-• **HP** — buka link-nya langsung dari aplikasi Discord
+• **Desktop**: buka lewat browser yang sudah login Discord
+• **HP**: buka link-nya langsung dari aplikasi Discord
 
 > Hanya pemilik role <@&{ROLE_PING}> yang bisa membukanya. Kalau ditolak, pastikan browser kamu masuk ke akun Discord yang benar."""
 
@@ -328,7 +328,7 @@ def main():
         print(f"**{JUDUL}**")
         for baris in ISI.split("\n"):
             print(f"  {baris}" if baris else "")
-        print(f"  — {KAKI}")
+        print(f"  {KAKI}")
         print(f"\n[ {TOMBOL} ] -> {DASHBOARD}")
         print("\n(belum dikirim. tambahkan --kirim untuk benar-benar mengirim)")
         return
