@@ -52,7 +52,9 @@ export async function POST(req) {
   }
 
   const kor = bacaKoreksi();
-  const lama = kor[kunci] || {};
+  /* Nisan TIDAK boleh diwariskan: mengoreksi ulang baris yang pernah
+     dibatalkan harus menghidupkannya kembali, bukan menyalin dibatalkan:true. */
+  const lama = kor[kunci] && !kor[kunci].dibatalkan ? kor[kunci] : {};
   const baru = { ...lama, alasan: String(alasan).trim(), waktu: new Date().toISOString() };
 
   if (dihapus !== undefined) baru.dihapus = !!dihapus;
@@ -79,8 +81,13 @@ export async function DELETE(req) {
   const kunci = new URL(req.url).searchParams.get("kunci");
   if (!kunci) return NextResponse.json({ error: "kunci call wajib diisi" }, { status: 400 });
   const kor = bacaKoreksi();
-  if (!(kunci in kor)) return NextResponse.json({ error: "koreksi tidak ditemukan" }, { status: 404 });
-  delete kor[kunci];
+  if (!(kunci in kor) || kor[kunci].dibatalkan) {
+    return NextResponse.json({ error: "koreksi tidak ditemukan" }, { status: 404 });
+  }
+  /* Nisan, bukan penghapusan - lihat tulisKoreksi() di lib/data.js. Menghapus
+     kuncinya hanya membuang salinan volume, dan salinan repo langsung mengisi
+     tempatnya lagi pada pembacaan berikutnya. */
+  kor[kunci] = { dibatalkan: true, waktu: new Date().toISOString() };
   tulisKoreksi(kor);
   return NextResponse.json({ ok: true, kunci });
 }
