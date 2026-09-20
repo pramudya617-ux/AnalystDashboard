@@ -1,11 +1,22 @@
 import { muatDashboard, ZORA } from "@/lib/data";
 import { statusPenarikan } from "@/lib/status";
+import { gerbang } from "@/lib/gerbang";
 import Dashboard from "@/components/Dashboard";
+import MasukDiscord from "@/components/MasukDiscord";
 
 export const dynamic = "force-dynamic"; // koreksi tersimpan di berkas, jangan di-cache
 
 export default async function Halaman({ searchParams }) {
   const sp = await searchParams;
+
+  /* Seluruh dashboard ada di balik login. Pemeriksaannya mendahului pembacaan
+     data supaya yang belum berhak tidak pernah membuat server membaca berkas
+     panggilan sama sekali - bukan sekadar tidak menampilkannya. */
+  const izin = await gerbang();
+  if (!izin.boleh) {
+    return <MasukDiscord sebab={izin.sebab} galat={izin.galat || sp?.galat} />;
+  }
+
   const mode = sp?.mode === "september" ? "september" : "6bulan";
   const data = muatDashboard(mode);
   /* Status penjadwal ikut dikirim supaya baris kabar di kepala halaman

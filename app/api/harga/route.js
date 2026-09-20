@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { ambilJson } from "@/lib/doh";
+import { gerbang } from "@/lib/gerbang";
 
 /* Harga realtime Binance, spot maupun futures.
  *
@@ -15,6 +16,13 @@ const FUTURES = "https://fapi.binance.com/fapi/v1";
 export const dynamic = "force-dynamic";
 
 export async function GET(req) {
+  /* Ikut dijaga. Isinya memang harga publik, tapi tanpa ini rute ini jadi
+     penerus Binance gratis yang bisa dipanggil siapa saja - dan kuota yang
+     terpakai kuota dashboard ini. */
+  if (!(await gerbang()).boleh) {
+    return NextResponse.json({ error: "Perlu masuk dulu" }, { status: 401 });
+  }
+
   const mentah = (new URL(req.url).searchParams.get("pairs") || "")
     .split(",")
     .map((s) => s.trim())
