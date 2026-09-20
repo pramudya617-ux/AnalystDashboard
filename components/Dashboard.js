@@ -8,6 +8,7 @@ import GrafikMini from "./GrafikMini";
 import Angka from "./Angka";
 import StatusTarik from "./StatusTarik";
 import PanelKinerja from "./PanelKinerja";
+import TombolKeluar from "./TombolKeluar";
 
 /* Disalin dari lib/data.js. Tidak bisa diimpor langsung karena modul itu memakai
    node:fs dan hanya hidup di sisi server. */
@@ -262,6 +263,8 @@ export default function Dashboard({ data }) {
               .sort((a, b) => b.calls.length - a.calls.length)
               .map((x) => x.nama)}
           />
+
+          <TombolKeluar />
         </header>
 
         <div className="kisi">

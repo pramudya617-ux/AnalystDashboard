@@ -1,4 +1,5 @@
 import { alamatBalik } from "@/lib/discord";
+import TombolKeluar from "./TombolKeluar";
 
 /* Layar masuk. Komponen server, tanpa "use client": isinya cuma satu tautan,
    dan tautan tidak butuh JavaScript. */
@@ -67,10 +68,17 @@ export default function MasukDiscord({ sebab, galat }) {
         )}
 
         {sebab === "ditolak" && (
-          <p style={{ fontSize: 11, color: "var(--ink-3)", margin: "12px 0 0", lineHeight: 1.6 }}>
-            Masih ditolak padahal role-nya sudah ada? Peramban ini mungkin masuk ke
-            akun Discord yang berbeda. Buka discord.com, ganti akunnya, lalu coba lagi.
-          </p>
+          <>
+            <p style={{ fontSize: 11, color: "var(--ink-3)", margin: "12px 0 0", lineHeight: 1.6 }}>
+              Masih ditolak padahal role-nya sudah ada? Peramban ini mungkin masuk ke
+              akun Discord yang berbeda. Buka discord.com, ganti akunnya, lalu coba lagi.
+            </p>
+            {/* Tanpa ini nasihat di atas tidak bisa dijalankan: sesi lama tetap
+                menempel, dan masuk ulang hanya mengulang penolakan yang sama. */}
+            <div style={{ marginTop: 10 }}>
+              <TombolKeluar label="Lupakan sesi ini" />
+            </div>
+          </>
         )}
 
         {/* Pembuka link dari dalam aplikasi Discord di HP kerap tidak membawa
