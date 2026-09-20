@@ -6,7 +6,7 @@ perlu gateway, tidak perlu endpoint interaksi, tidak perlu proses yang hidup
 terus. Sekali POST, tombolnya menempel di pesan itu selamanya.
 
 Aman dipajang di channel yang dilihat banyak orang: yang mengklik tetap kena
-gerbang login: bukan pemilik role premium akan ditolak di halaman depan.
+gerbang login, dan yang bukan pemilik role premium ditolak di halaman depan.
 
     python umumkan.py            -> hanya menampilkan yang AKAN dikirim
     python umumkan.py --kirim    -> benar-benar mengirim
@@ -31,15 +31,33 @@ ROLE_PING = "1246803191505358928"        # @Premium
 
 DASHBOARD = os.environ.get("APP_URL", "https://drc.up.railway.app").rstrip("/")
 
+# --------------------------------------------------------------------- isi
 JUDUL = "Analyst Dashboard"
-ISI = (
-    "Win rate, riwayat panggilan, dan chart tiap analis dalam satu halaman.\n"
-    "Diperbarui otomatis: Zora tiap 30 menit, analis lain tiap hari.\n\n"
-    "Masuk menggunakan akun Discord: klik tombol di bawah lalu authorize. "
-    "Catatan: Login dulu discord di website, lalu pencet link untuk akses lebih mudah ke dashboard."
-)
+
+ISI = f"""Win rate, riwayat panggilan, dan chart tiap call analis — semuanya dalam satu halaman.
+
+**Diperbarui otomatis**
+• Zora — tiap 30 menit
+• Neil, Lynx & analis lain — tiap hari
+
+**Cara masuk**
+Klik tombol di bawah, lalu *Authorize* dengan akun Discord kamu. Tidak ada kata sandi baru yang perlu diingat.
+
+**Biar lancar**
+• **Desktop** — buka lewat browser yang sudah login Discord
+• **HP** — buka link-nya langsung dari aplikasi Discord
+
+> Hanya pemilik role <@&{ROLE_PING}> yang bisa membukanya. Kalau ditolak, pastikan browser kamu masuk ke akun Discord yang benar."""
+
 WARNA = 0x2F7BFF                         # --biru, sama dengan dashboard
-GAMBAR = os.environ.get("UMUMKAN_GAMBAR", "")   # URL banner, opsional
+KAKI = "Daily Rekom Crypto"
+
+# BANNER adalah EMBED TERSENDIRI, bukan gambar di dalam kartu isi.
+# Embed bergambar selalu menaruh gambarnya DI BAWAH teks; supaya banner muncul
+# di ATAS seperti pengumuman Join Premium, ia harus jadi embed pertama yang
+# isinya cuma gambar. Keduanya juga tidak boleh berbagi "url" yang sama -
+# Discord akan menggabungkannya jadi satu kartu bergaleri.
+BANNER = os.environ.get("UMUMKAN_BANNER", "")
 
 TOMBOL = "Buka Dashboard"
 
@@ -113,20 +131,27 @@ def susun(bisa):
             "components": [{"type": 2, "style": 5, "label": TOMBOL, "url": DASHBOARD}],
         }],
         # Daftar putih mention: hanya role ini yang boleh memicu notifikasi,
-        # sehingga salah ketik pada teks tidak pernah berubah jadi @everyone.
+        # sehingga <@&...> di dalam kutipan tidak pernah berubah jadi ping kedua
+        # dan salah ketik tidak pernah berubah jadi @everyone.
         "allowed_mentions": {"parse": [], "roles": [ROLE_PING] if bisa["ping"] else []},
     }
 
     if bisa["embed"]:
-        e = {"title": JUDUL, "description": ISI, "color": WARNA,
-             "url": DASHBOARD, "footer": {"text": "Daily Rekom Crypto"}}
-        if GAMBAR:
-            e["image"] = {"url": GAMBAR}
-        m["embeds"] = [e]
+        embeds = []
+        if BANNER:
+            embeds.append({"image": {"url": BANNER}, "color": WARNA})
+        embeds.append({
+            "title": JUDUL,
+            "description": ISI,
+            "color": WARNA,
+            "url": DASHBOARD,
+            "footer": {"text": KAKI},
+        })
+        m["embeds"] = embeds
         m["content"] = f"<@&{ROLE_PING}>" if bisa["ping"] else ""
     else:
         # Tanpa Embed Links, isinya turun jadi teks biasa. Tetap terbaca, tetap
-        # bertombol - cuma tidak ada kartu berwarna dan gambarnya.
+        # bertombol - cuma tidak ada kartu berwarna maupun banner.
         kepala = f"<@&{ROLE_PING}>\n\n" if bisa["ping"] else ""
         m["content"] = f"{kepala}**{JUDUL}**\n{ISI}"
     return m
@@ -140,6 +165,7 @@ def main():
     print(f"channel : #{ch.get('name')} ({CHANNEL})")
     print(f"tombol  : [{TOMBOL}] -> {DASHBOARD}")
     print(f"kartu   : {'ya' if bisa['embed'] else 'TIDAK - beri izin Embed Links kalau mau'}")
+    print(f"banner  : {BANNER or 'TIDAK ADA - isi UMUMKAN_BANNER kalau mau'}")
     kabar_ping = ("@Premium" if bisa["ping"] else
                   "TIDAK - beri izin Mention Everyone, atau jadikan role Premium mentionable")
     print(f"ping    : {kabar_ping}")
@@ -147,8 +173,14 @@ def main():
         sys.exit("\nbot tidak punya izin Send Messages di channel ini - berhenti.")
 
     if "--kirim" not in sys.argv:
-        print("\n--- yang AKAN dikirim ---")
-        print(json.dumps(pesan, ensure_ascii=False, indent=1))
+        print("\n--- tampilan akhir ---\n")
+        if BANNER:
+            print(f"[ banner: {BANNER} ]\n")
+        print(f"**{JUDUL}**")
+        for baris in ISI.split("\n"):
+            print(f"  {baris}" if baris else "")
+        print(f"  — {KAKI}")
+        print(f"\n[ {TOMBOL} ] -> {DASHBOARD}")
         print("\n(belum dikirim. tambahkan --kirim untuk benar-benar mengirim)")
         return
 

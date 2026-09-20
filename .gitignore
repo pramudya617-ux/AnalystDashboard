@@ -6,3 +6,6 @@ node_modules/
 
 # keadaan penjadwal - ditulis tiap 30 menit dan memuat jalur laptop
 data/jadwal_zora.json
+
+# berkas bytecode Python - dibuat ulang sendiri, tidak pernah pantas ikut repo
+__pycache__/
