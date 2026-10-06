@@ -32,6 +32,7 @@ import urllib.request
 # internetpositif yang membalas 403. dns_doh menambal resolusi nama lewat
 # DNS-over-HTTPS sehingga sambungannya sampai ke server aslinya.
 import dns_doh  # noqa: F401  (efeknya lewat impor)
+import bursa_ban
 
 HERE = pathlib.Path(__file__).resolve().parent
 # DATA_DIR menunjuk volume permanen Railway. Tanpa itu (mis. di laptop), hasilnya
@@ -230,10 +231,19 @@ def klines(pair, pasar, mulai_ms, selesai_ms):
     url = (f"{dasar}/klines?symbol={pair}&interval=1h"
            f"&startTime={mulai_ms}&endTime={selesai_ms}&limit=1000")
     try:
+        # Zora BUKAN penyebab ban - bebannya belasan permintaan berurutan - tapi
+        # ia berbagi IP dengan penarik analis, jadi ia ikut tertolak. Memeriksa
+        # lebih dulu membuatnya berhenti ikut memperpanjang ban yang sedang
+        # berjalan, dan melewati permintaan yang sudah pasti ditolak.
+        bursa_ban.periksa(url)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.load(r)
+    except bursa_ban.Diblokir as e:
+        print(f"  [peringatan] lilin {pair} ({pasar}) dilewati: {e}")
+        return []
     except urllib.error.HTTPError as e:
+        bursa_ban.catat(url, e)
         print(f"  [peringatan] lilin {pair} ({pasar}) gagal: HTTP {e.code}")
         return []
     except Exception as e:  # noqa: BLE001
@@ -397,7 +407,15 @@ def utama():
         "ditarik": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "jumlahPesan": len(pesan), "baris": baris,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\n{len(baris)} panggilan tersimpan ke {KELUARAN}")
+    # Baris terakhir inilah yang disimpan penjadwal ke jadwal_zora.json dan
+    # ditampilkan dashboard. Sebelumnya penarikan yang separuh gagal tetap
+    # berbunyi "N panggilan tersimpan" - terdengar berhasil - sementara baris
+    # futures-nya diam-diam memakai angka lama. Kegagalan harus ikut terbaca.
+    basi = sum(1 for b in baris if b.get("masuk") is None and b.get("tpKe") is None)
+    kabar = f"{len(baris)} panggilan tersimpan"
+    if basi:
+        kabar += f", {basi} TANPA HARGA (bursa tidak terjangkau)"
+    print(f"\n{kabar} ke {KELUARAN}")
 
 
 # ------------------------------------------------------------------- selftest

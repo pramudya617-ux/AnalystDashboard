@@ -62,6 +62,7 @@ import urllib.request
 # .env folder ini ikut dimuat, supaya kunci tidak harus lewat setx.
 import env_lokal  # noqa: E402,F401
 import dns_doh  # noqa: E402,F401
+import bursa_ban  # noqa: E402
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -120,13 +121,21 @@ LLM_KEY = os.environ.get("LLM_KEY") or os.environ.get("XAI_API_KEY", "")
 
 
 def minta(url, headers=None, data=None, timeout=40):
+    # Permintaan ke bursa yang sedang kena ban DITOLAK DI SINI, tanpa menyentuh
+    # jaringan. Menghantam host yang diblokir hanya memperpanjang ban-nya, dan
+    # itu persis yang membuat data analis membeku 18 hari di produksi.
+    bursa_ban.periksa(url)
     h = dict(UA_BURSA if "binance.com" in url else UA)
     h.update(headers or {})
     req = urllib.request.Request(url, data=data, headers=h)
     if data is not None:
         req.add_header("Content-Type", "application/json")
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        bursa_ban.catat(url, e)
+        raise
 
 
 def contoh_konfig():
@@ -1055,9 +1064,11 @@ def nilai_harga(baris, sejak_ms):
     # itu bagian terbesar dari seluruh waktu penarikan. Pekerjaannya murni
     # baca, tidak ada yang saling menimpa, jadi menunggunya bisa ditumpuk.
     #
-    # Enam pekerja, bukan lebih: Binance membatasi per bobot permintaan, dan
-    # tiap aset memerlukan beberapa halaman. Angka ini memberi percepatan
-    # terbesar tanpa mendekati batas itu.
+    # DUA pekerja, turun dari enam. Enam ternyata TERLALU dekat dengan batas:
+    # 98 aset x 4 halaman adalah ~392 permintaan dalam satu ledakan, dan di IP
+    # pusat data Railway itu berujung HTTP 418 - 'banned until ...' - yang
+    # membuang seluruh penarikan hari itu. Lebih lambat beberapa menit jauh
+    # lebih murah daripada data yang tidak terbarui sama sekali.
     simbol_per_aset = {a: pasangan(a) for a in per_aset}
     perlu = sorted({s for s in simbol_per_aset.values() if s})
     print(f"menarik harga {len(perlu)} aset secara bersamaan...")
@@ -1070,7 +1081,7 @@ def nilai_harga(baris, sejak_ms):
         except Exception:                                    # noqa: BLE001
             return sym, None
 
-    with cf.ThreadPoolExecutor(max_workers=6) as pool:
+    with cf.ThreadPoolExecutor(max_workers=2) as pool:
         for sym, k in pool.map(_tarik, perlu):
             seri_per_simbol[sym] = k
     print(f"  selesai dalam {time.time() - t_harga:.0f} detik")
@@ -1231,6 +1242,49 @@ def nilai_harga(baris, sejak_ms):
             ok += 1
         print(f"\r  menilai {i}/{len(per_aset)} aset...", end="", flush=True)
     print(f"\r  {ok} panggilan dinilai dari harga, {gagal} aset tanpa data     ")
+
+
+def pertahankan_harga_lama(baris, berkas=None):
+    """Baris yang gagal dihargai memakai harga dari penarikan SEBELUMNYA.
+
+    Tanpa ini, satu ban Binance membuang penarikan sehari penuh. Terukur di
+    produksi: fapi kena ban, 56 baris futures kehilangan harga, penjaga di
+    lib/penarik_analis.js menolak hasilnya karena jumlah baris berharga anjlok
+    dari 253 ke 193 - dan 196 baris SPOT yang baik-baik saja ikut terbuang
+    bersamanya. Pengakuan analis, panggilan baru, dan ringkasan obrolan hari itu
+    hilang semua gara-gara satu host yang ngambek.
+
+    Penalarannya sama dengan pertahankan_hasil_lama() di tarik_zora.py: harga
+    kemarin untuk sebuah panggilan lama jauh lebih dekat ke kebenaran daripada
+    tidak ada harga sama sekali. Yang ditandai hargaDariTarikanLama supaya
+    jelas angkanya bukan dari penarikan ini.
+    """
+    try:
+        acuan = berkas or OUT
+        lama = {b.get("sumber"): b
+                for b in json.loads(acuan.read_text(encoding="utf-8")).get("baris", [])
+                if b.get("sumber")}
+    except Exception:                                        # noqa: BLE001
+        return 0                      # belum ada penarikan sebelumnya
+
+    BAWA = ("pair", "bursa", "masuk", "imbal", "terbaik", "terburuk",
+            "hariDinilai", "hasil")
+    n = 0
+    for r in baris:
+        if r.get("masuk") is not None:
+            continue                  # penarikan ini berhasil, biarkan
+        l = lama.get(r.get("sumber"))
+        if not l or l.get("masuk") is None:
+            continue                  # yang lama pun tidak punya harga
+        for f in BAWA:
+            if l.get(f) is not None:
+                r[f] = l[f]
+        r["hargaDariTarikanLama"] = True
+        n += 1
+    if n:
+        print(f"  {n} baris memakai harga penarikan sebelumnya "
+              f"(bursa tidak terjangkau saat ini)")
+    return n
 
 
 def klaim_lanjutan(grup, pesan_per_orang):
@@ -1599,6 +1653,33 @@ def _uji():
     assert RE_MASIH_PEGANG.search("I'm still holding my VVV long on Hyperliquid")
     assert not RE_MASIH_PEGANG.search("I'm longing VVV here at CMP again")
     assert RE_BUKA_POSISI.search("I'm longing VVV here at CMP again")
+
+    # pertahankan_harga_lama: skenario produksi 5 Oktober, fapi kena ban
+    import tempfile as _tf
+    with _tf.TemporaryDirectory() as _d:
+        _f = Path(_d) / "lama.json"
+        _f.write_text(json.dumps({"baris": [
+            {"sumber": "u/1", "masuk": 10.0, "imbal": 5.0, "pair": "AUSDT",
+             "bursa": "futures", "hasil": "untung"},
+            {"sumber": "u/2", "masuk": 20.0, "imbal": -1.0, "pair": "BUSDT",
+             "bursa": "spot", "hasil": "rugi"},
+            {"sumber": "u/3", "masuk": None, "imbal": None},
+        ]}), encoding="utf-8")
+
+        baris = [
+            {"sumber": "u/1", "masuk": None, "imbal": None},    # futures, ban
+            {"sumber": "u/2", "masuk": 21.5, "imbal": 7.5},     # spot, sehat
+            {"sumber": "u/3", "masuk": None, "imbal": None},    # dulu pun kosong
+            {"sumber": "u/4", "masuk": None, "imbal": None},    # panggilan baru
+        ]
+        n = pertahankan_harga_lama(baris, _f)
+        assert n == 1, f"harus 1 baris dibawa, bukan {n}"
+        assert baris[0]["masuk"] == 10.0, "harga futures lama tidak terbawa"
+        assert baris[0]["hasil"] == "untung", "hasil lama tidak terbawa"
+        assert baris[0]["hargaDariTarikanLama"] is True, "asal angka tidak ditandai"
+        assert baris[1]["masuk"] == 21.5, "baris sehat TIDAK boleh ditimpa yang lama"
+        assert "hargaDariTarikanLama" not in baris[1], "baris sehat tidak boleh ditandai"
+        assert baris[2]["masuk"] is None and baris[3]["masuk"] is None,             "yang memang tak punya harga harus tetap kosong"
 
     print("fetch_discord: semua pemeriksaan aturan lolos")
 
@@ -2038,6 +2119,9 @@ def main():
     # mengukur kebiasaan mengumumkan, bukan hasil dagang.
     print("menilai panggilan terhadap harga Binance...")
     nilai_harga(baris, int(sejak.timestamp() * 1000))
+    # WAJIB sebelum hasilAkhir disusun di bawah: harga yang dibawa dari
+    # penarikan lama harus ikut menentukan hasilnya, bukan jadi angka yatim.
+    pertahankan_harga_lama(baris)
 
     # Urutan acuan: PENGAKUAN ANALIS DULU, harga hanya kalau tidak ada pengakuan.
     # Alasannya, analis tahu kapan ia benar-benar keluar dari posisi, sedangkan
